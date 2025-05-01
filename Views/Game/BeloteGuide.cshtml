@@ -22,7 +22,6 @@
     </nav>
     
     <div class="container">
-        <!-- Overview Section -->
         <section id="overview">
             <h2>Overview of Belote</h2>
             <p>Belote is a popular French trick-taking card game typically played by four players in two teams. It's one of the most played card games in France and is also popular in many other European countries.</p>
@@ -39,13 +38,375 @@
                     </ul>
                 </div>
                 
-                <!-- Other cards remain the same -->
+                <div class="card">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Trump suit determined by bidding</li>
+                        <li>Special card rankings in trump suit</li>
+                        <li>Team-based gameplay</li>
+                        <li>Combination of luck and skill</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Equipment Needed</h3>
+                    <ul>
+                        <li>32-card French deck (7 through Ace)</li>
+                        <li>Pen and paper for scorekeeping</li>
+                        <li>Table with space for all players</li>
+                    </ul>
+                </div>
             </div>
         </section>
-
-        <!-- Other sections (Rules, Scoring, etc.) remain the same -->
-        <!-- Just copy all the HTML content between <section> tags -->
         
+        <section id="rules">
+            <h2>Detailed Game Rules</h2>
+            
+            <h3>Setup</h3>
+            <p>The game is played with a 32-card deck consisting of cards from 7 to Ace in each suit. Players form two teams of two, with partners sitting opposite each other.</p>
+            <p><strong>Card Distribution:</strong> Each player initially receives 5 cards. After the bidding determines the trump suit, each player receives 3 more cards, for a total of 8 cards each.</p>
+            
+            <h3>Card Rankings</h3>
+            <p>The card rankings in Belote vary between the trump suit and non-trump suits:</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h4>Non-Trump Suits</h4>
+                    <ol>
+                        <li>Ace (highest)</li>
+                        <li>10</li>
+                        <li>King</li>
+                        <li>Queen</li>
+                        <li>Jack</li>
+                        <li>9</li>
+                        <li>8</li>
+                        <li>7 (lowest)</li>
+                    </ol>
+                </div>
+                
+                <div class="card">
+                    <h4>Trump Suit</h4>
+                    <ol>
+                        <li>Jack (highest)</li>
+                        <li>9</li>
+                        <li>Ace</li>
+                        <li>10</li>
+                        <li>King</li>
+                        <li>Queen</li>
+                        <li>8</li>
+                        <li>7 (lowest)</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <h3>Bidding (Annonce)</h3>
+            <p>The bidding determines the trump suit. Starting with the dealer's left, each player can either pass or bid a higher value suit:</p>
+            <ul>
+                <li>Clubs (lowest)</li>
+                <li>Diamonds</li>
+                <li>Hearts</li>
+                <li>Spades</li>
+                <li>No Trump (All Trumps)</li>
+                <li>All Trumps (No Trump variant)</li>
+            </ul>
+            <p>The highest bidder declares the trump suit. If all players pass, the cards are redealt by the next dealer.</p>
+            <p><strong>After bidding:</strong> Each player receives 3 additional cards, bringing their total to 8 cards each.</p>
+            
+            <h3>Gameplay</h3>
+            <ol>
+                <li>The bidder leads the first trick.</li>
+                <li>Players must follow suit if possible.</li>
+                <li>If unable to follow suit, players may play any card (including trumps).</li>
+                <li>The highest card of the led suit wins the trick, unless trumped.</li>
+                <li>The winner of each trick leads the next one.</li>
+                <li>Special combinations (belote and rebelote) can be declared when played.</li>
+            </ol>
+            
+            <h3>Special Rules</h3>
+            <div class="card-container">
+                <div class="card">
+                    <h4>Belote & Rebelote</h4>
+                    <p>When a player holds both the King and Queen of trumps, they can declare "Belote" when playing the first of these cards and "Rebelote" when playing the second. This earns bonus points.</p>
+                </div>
+                
+                <div class="card">
+                    <h4>Last Trick</h4>
+                    <p>The team that wins the last trick receives a 10-point bonus.</p>
+                </div>
+                
+                <div class="card">
+                    <h4>Capot</h4>
+                    <p>If a team wins all eight tricks, they score a "Capot" which is worth 250 points plus all card points.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="scoring">
+            <h2>Scoring System</h2>
+            
+            <h3>Card Values</h3>
+            <table>
+                <tr>
+                    <th>Card</th>
+                    <th>Non-Trump Value</th>
+                    <th>Trump Value</th>
+                </tr>
+                <tr>
+                    <td>Jack</td>
+                    <td>2 points</td>
+                    <td>20 points</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>0 points</td>
+                    <td>14 points</td>
+                </tr>
+                <tr>
+                    <td>Ace</td>
+                    <td>11 points</td>
+                    <td>11 points</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>10 points</td>
+                    <td>10 points</td>
+                </tr>
+                <tr>
+                    <td>King</td>
+                    <td>4 points</td>
+                    <td>4 points</td>
+                </tr>
+                <tr>
+                    <td>Queen</td>
+                    <td>3 points</td>
+                    <td>3 points</td>
+                </tr>
+                <tr>
+                    <td>8, 7</td>
+                    <td>0 points</td>
+                    <td>0 points</td>
+                </tr>
+            </table>
+            
+            <h3>Bonus Points</h3>
+            <ul>
+                <li><strong>Belote & Rebelote:</strong> 20 points</li>
+                <li><strong>Last Trick:</strong> 10 points</li>
+                <li><strong>Capot (all tricks):</strong> 250 points + all card points</li>
+            </ul>
+            
+            <h3>Calculating Scores</h3>
+            <p>At the end of each round:</p>
+            <ol>
+                <li>Count the total points from cards won by each team</li>
+                <li>Add any bonus points (Belote, last trick, etc.)</li>
+                <li>The team that won the bid must have at least as many points as they bid</li>
+                <li>If they succeed, both teams score their points</li>
+                <li>If they fail, the opposing team scores 160 points plus all their card points</li>
+            </ol>
+            
+            <div class="interactive">
+                <h3>Score Calculator</h3>
+                <p>Use this interactive tool to calculate your Belote score:</p>
+                
+                <div>
+                    <label for="bidPoints">Bid Points:</label>
+                    <input type="number" id="bidPoints" min="80" max="250" step="10" value="80">
+                </div>
+                
+                <div>
+                    <label for="teamPoints">Your Team's Points:</label>
+                    <input type="number" id="teamPoints" min="0" max="252" value="0">
+                </div>
+                
+                <div>
+                    <label for="belote">Belote/Rebelote?</label>
+                    <input type="checkbox" id="belote">
+                </div>
+                
+                <div>
+                    <label for="lastTrick">Won Last Trick?</label>
+                    <input type="checkbox" id="lastTrick">
+                </div>
+                
+                <div>
+                    <label for="capot">Capot (all tricks)?</label>
+                    <input type="checkbox" id="capot">
+                </div>
+                
+                <button onclick="calculateScore()">Calculate Score</button>
+                
+                <div id="scoreResult" style="margin-top: 20px; font-weight: bold;"></div>
+            </div>
+        </section>
+        
+        <section id="strategies">
+            <h2>Advanced Strategies</h2>
+            
+            <h3>Bidding Strategies with 5-3 Distribution</h3>
+            <div class="card-container">
+                <div class="card">
+                    <h4>Initial Assessment</h4>
+                    <p>With only 5 cards initially, focus on your strongest suits. Look for at least 2 strong trumps (Jack, 9, Ace) before considering a bid.</p>
+                </div>
+                
+                <div class="card">
+                    <h4>Post-Bid Adjustment</h4>
+                    <p>After receiving your 3 additional cards, reevaluate your hand strength. You might gain key cards that make your bid stronger or weaker.</p>
+                </div>
+                
+                <div class="card">
+                    <h4>Trump Selection</h4>
+                    <p>With partial information (only 5 cards), consider bidding suits where you have high cards or length, anticipating the 3-card supplement.</p>
+                </div>
+            </div>
+            
+            <h3>Trump Management</h3>
+            <ul>
+                <li><strong>Save high trumps:</strong> Don't waste your Jack or 9 early unless necessary.</li>
+                <li><strong>Trump control:</strong> Count trumps to estimate how many are left in play.</li>
+                <li><strong>Forcing plays:</strong> Sometimes it's better to force opponents to use their high trumps.</li>
+            </ul>
+            
+            <h3>Signaling to Partner</h3>
+            <p>Develop subtle ways to communicate with your partner:</p>
+            <ul>
+                <li><strong>Card play order:</strong> The sequence you play cards can indicate strength or weakness.</li>
+                <li><strong>Suit preference:</strong> Discards can signal which suits you prefer.</li>
+                <li><strong>Trump signals:</strong> How you play trumps can indicate how many you hold.</li>
+            </ul>
+            
+            <h3>Common Mistakes to Avoid</h3>
+            <div class="card-container">
+                <div class="card">
+                    <h4>Overbidding</h4>
+                    <p>Don't get caught up in bidding wars without the cards to support it.</p>
+                </div>
+                
+                <div class="card">
+                    <h4>Wasting High Cards</h4>
+                    <p>Don't play your Ace or 10 too early when it might be captured.</p>
+                </div>
+                
+                <div class="card">
+                    <h4>Poor Trump Management</h4>
+                    <p>Using your high trumps too early leaves you vulnerable later in the game.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="variations">
+            <h2>Belote Variations</h2>
+            
+            <div class="variation">
+                <h3>Belote Coinchée</h3>
+                <p>A more strategic variant where players can "coinche" (double) the bid, increasing the stakes. The bidding team can then "surcoinche" (redouble).</p>
+                <p><strong>Key Differences:</strong></p>
+                <ul>
+                    <li>More complex bidding with doubles</li>
+                    <li>Higher scoring potential</li>
+                    <li>More emphasis on precise bidding</li>
+                </ul>
+            </div>
+            
+            <div class="variation">
+                <h3>Belote à Deux (2 Players)</h3>
+                <p>A two-player version where each player receives 12 cards and 8 are placed face down as a talon.</p>
+                <p><strong>Key Differences:</strong></p>
+                <ul>
+                    <li>No teams - strictly competitive</li>
+                    <li>Talon allows for card exchange after trump declaration</li>
+                    <li>Different strategy with hidden information</li>
+                </ul>
+            </div>
+            
+            <div class="variation">
+                <h3>Belote à Trois (3 Players)</h3>
+                <p>A three-player variant where each plays for themselves, with the dealer sitting out every fourth hand.</p>
+                <p><strong>Key Differences:</strong></p>
+                <ul>
+                    <li>Individual play rather than teams</li>
+                    <li>Different card distribution</li>
+                    <li>More defensive play required</li>
+                </ul>
+            </div>
+            
+            <div class="variation">
+                <h3>Russian Belote</h3>
+                <p>A variation popular in Eastern Europe with some rule differences.</p>
+                <p><strong>Key Differences:</strong></p>
+                <ul>
+                    <li>Slightly different card rankings</li>
+                    <li>Alternative scoring system</li>
+                    <li>Often played to higher target scores</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="history">
+            <h2>History of Belote</h2>
+            
+            <p>Belote is believed to have originated in France in the early 20th century, though its exact origins are unclear. It likely evolved from similar games like Klaberjass (which came from Central Europe) and Klaverjas (Dutch origin).</p>
+            
+            <h3>Timeline</h3>
+            <ul>
+                <li><strong>Early 1900s:</strong> First references to Belote appear in France</li>
+                <li><strong>1920s-1930s:</strong> Game becomes widely popular in French cafes</li>
+                <li><strong>Mid-20th Century:</strong> Spreads to other European countries</li>
+                <li><strong>1970s:</strong> Official tournament rules established in France</li>
+                <li><strong>2000s:</strong> Online versions popularize the game globally</li>
+            </ul>
+            
+            <h3>Cultural Significance</h3>
+            <p>Belote is more than just a card game in France - it's a cultural institution. The game is:</p>
+            <ul>
+                <li>Commonly played in cafes, homes, and social gatherings</li>
+                <li>Featured in French literature and films</li>
+                <li>Recognized as part of France's intangible cultural heritage</li>
+                <li>The subject of national and regional tournaments</li>
+            </ul>
+            
+            <div class="interactive">
+                <h3>Belote Quiz</h3>
+                <p>Test your Belote knowledge with this short quiz:</p>
+                
+                <div id="quizQuestions">
+                    <div class="quiz-question">
+                        <p>1. What is the highest card in the trump suit?</p>
+                        <input type="radio" name="q1" id="q1a" value="a">
+                        <label for="q1a">Ace</label><br>
+                        <input type="radio" name="q1" id="q1b" value="b">
+                        <label for="q1b">Jack</label><br>
+                        <input type="radio" name="q1" id="q1c" value="c">
+                        <label for="q1c">King</label><br>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <p>2. How many points is Belote + Rebelote worth?</p>
+                        <input type="radio" name="q2" id="q2a" value="a">
+                        <label for="q2a">10 points</label><br>
+                        <input type="radio" name="q2" id="q2b" value="b">
+                        <label for="q2b">20 points</label><br>
+                        <input type="radio" name="q2" id="q2c" value="c">
+                        <label for="q2c">30 points</label><br>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <p>3. What happens if the bidding team doesn't make their bid?</p>
+                        <input type="radio" name="q3" id="q3a" value="a">
+                        <label for="q3a">They score half points</label><br>
+                        <input type="radio" name="q3" id="q3b" value="b">
+                        <label for="q3b">Opponents score 160 plus their card points</label><br>
+                        <input type="radio" name="q3" id="q3c" value="c">
+                        <label for="q3c">The game is replayed</label><br>
+                    </div>
+                </div>
+                
+                <button onclick="checkQuiz()">Check Answers</button>
+                
+                <div id="quizResult" style="margin-top: 20px; font-weight: bold;"></div>
+            </div>
+        </section>
     </div>
 </div>
 
@@ -59,7 +420,6 @@
             --dark: #2c3e50;
         }
         
-        /* Include all your CSS from the original file */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -69,20 +429,225 @@
             background-color: #f5f5f5;
         }
         
-        /* Rest of your CSS rules */
-        /* ... */
+        .belote-guide header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        section {
+            padding: 2rem 0;
+            background-color: white;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            color: var(--secondary);
+        }
+        
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            margin-top: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .highlight {
+            background-color: #fffde7;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .interactive {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #c0392b;
+        }
+        
+        .card-image {
+            width: 100px;
+            height: auto;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .card-image:hover {
+            transform: scale(1.1);
+        }
+        
+        .variation {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-left: 4px solid #4caf50;
+            margin: 15px 0;
+        }
+        
     </style>
 }
 
 @section Scripts {
     <script>
-        // Your JavaScript functions from the original file
         function calculateScore() {
-            // Score calculation logic
+            const bidPoints = parseInt(document.getElementById('bidPoints').value);
+            const teamPoints = parseInt(document.getElementById('teamPoints').value);
+            const hasBelote = document.getElementById('belote').checked;
+            const hasLastTrick = document.getElementById('lastTrick').checked;
+            const hasCapot = document.getElementById('capot').checked;
+            
+            let totalPoints = teamPoints;
+            
+            if (hasBelote) totalPoints += 20;
+            if (hasLastTrick) totalPoints += 10;
+            if (hasCapot) totalPoints = 250 + teamPoints;
+            
+            let result;
+            
+            if (hasCapot) {
+                result = `Your team scored a Capot! Total points: ${totalPoints}`;
+            } else if (totalPoints >= bidPoints) {
+                result = `Your team made the bid! Total points: ${totalPoints}`;
+            } else {
+                const opponentPoints = 160 + (252 - teamPoints);
+                result = `Your team failed the bid. Opponents score: ${opponentPoints}, your team scores: 0`;
+            }
+            
+            document.getElementById('scoreResult').textContent = result;
         }
         
         function checkQuiz() {
-            // Quiz checking logic
+            const answers = {
+                q1: 'b',
+                q2: 'b',
+                q3: 'b'
+            };
+            
+            let score = 0;
+            
+            for (let i = 1; i <= 3; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) {
+                    score++;
+                }
+            }
+            
+            const resultText = `You scored ${score} out of 3! ${score === 3 ? 'Perfect!' : score > 1 ? 'Good job!' : 'Keep practicing!'}`;
+            document.getElementById('quizResult').textContent = resultText;
         }
     </script>
 }
