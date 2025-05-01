@@ -1,5 +1,6 @@
 using MyMvcApp.Data;
 using Microsoft.EntityFrameworkCore;
+using DEMO2_ASP.Services;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,4 +1,6 @@
+namespace DEMO2_ASP.Services;
 using DEMO2_ASP.Models.Game;
+
 public class BeloteGameService
 {
     private static readonly List<(string symbol, string name, string color)> Suits = new()
@@ -76,6 +78,32 @@ public class BeloteGameService
             (state.Deck[k], state.Deck[n]) = (state.Deck[n], state.Deck[k]);
         }
     }
+    public void MakeBid(GameState gameState, string suit)
+{
+    // Validate if the game is still in the bidding phase
+    if (gameState.GamePhase != "bidding")
+    {
+        throw new InvalidOperationException("The game is not in the bidding phase.");
+    }
+
+    // If no bidder exists, assign the first bidder
+    if (gameState.BidderIndex == null)
+    {
+        gameState.BidderIndex = gameState.CurrentPlayerIndex;
+        gameState.TrumpSuit = suit;  // Assign the chosen suit as the trump suit
+    }
+    else
+    {
+        // If a bidder exists, update points or move to the next phase
+        gameState.GamePhase = "playing";  // Change the phase from bidding to playing
+    }
+
+    // Move to the next player
+    gameState.CurrentPlayerIndex = (gameState.CurrentPlayerIndex + 1) % 4;
+
+    // Optionally, you can add other logic here, such as tracking bid passes, updating scores, etc.
+}
+
 
     public void SortHand(List<Card> hand)
 {
@@ -109,6 +137,22 @@ public class BeloteGameService
 
         SortHand(state.HumanPlayer.Hand);
     }
+
+    public void PlayCard(GameState gameState, string cardId)
+{
+    // Locate the player
+     var player = gameState.CurrentPlayer;
+    if (player == null) return;
+
+    // Find and remove the card from their hand
+    var card = player.Hand.FirstOrDefault(c => c.Id == cardId);
+    if (card != null)
+    {
+        player.Hand.Remove(card);
+        gameState.Trick.Add(card);
+    }
+}
+
 
     // Other game methods (PlayCard, EvaluateTrick, etc.) would go here
     // These would be similar to your JavaScript functions but in C#

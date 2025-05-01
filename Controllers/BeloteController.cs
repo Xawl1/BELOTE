@@ -1,6 +1,8 @@
 using DEMO2_ASP.Models.Game;
 using DEMO2_ASP.Services;
 using Microsoft.AspNetCore.Mvc;
+using DEMO2_ASP.Extensions;
+
 
 public class GameController : Controller
 {
