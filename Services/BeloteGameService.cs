@@ -1,3 +1,4 @@
+using DEMO2_ASP.Models.Game;
 public class BeloteGameService
 {
     private static readonly List<(string symbol, string name, string color)> Suits = new()
@@ -76,6 +77,15 @@ public class BeloteGameService
         }
     }
 
+    public void SortHand(List<Card> hand)
+{
+    hand.Sort((card1, card2) => 
+    {
+        int suitComparison = card1.Suit.CompareTo(card2.Suit);
+        if (suitComparison != 0) return suitComparison;
+        return card1.Value.CompareTo(card2.Value);
+    });
+}
     private void DealCards(GameState state)
     {
         state.HumanPlayer.Hand.Clear();
