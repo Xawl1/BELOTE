@@ -5,6 +5,8 @@ public class GameState
     public Player HumanPlayer { get; set; } = new Player { IsHuman = true, Name = "You" };
     public List<Player> Opponents { get; set; } = new List<Player>();
     public List<Card> Trick { get; set; } = new List<Card>();
+
+    
     public int CurrentPlayerIndex { get; set; }
     public string TrumpSuit { get; set; } = string.Empty;
     public int? BidderIndex { get; set; }

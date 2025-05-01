@@ -18,9 +18,6 @@
             <button class="btn-bid" data-suit="alltrumps">All Trumps</button>
             <button class="btn-pass">Pass</button>
         </div>
-        <div class="bid-info">
-            Current bid: <span id="currentBidValue">80</span> by <span id="currentBidder">Opponent 1</span>
-        </div>
     </div>
     
     <!-- Main Game Table (hidden initially) -->
@@ -28,8 +25,7 @@
         <!-- Opponent players -->
         <div class="player-area opponent-top">
             <div class="player-info">
-                <span class="player-name">Opponent 1</span>
-                <span class="player-score">120</span>
+                <span class="player-name">Teammate</span>
             </div>
             <div class="player-cards horizontal">
                 <!-- Cards will be added dynamically -->
@@ -38,8 +34,7 @@
         
         <div class="player-area opponent-left">
             <div class="player-info">
-                <span class="player-name">Opponent 2</span>
-                <span class="player-score">80</span>
+                <span class="player-name">Opponent</span>
             </div>
             <div class="player-cards vertical">
                 <!-- Cards will be added dynamically -->
@@ -48,8 +43,7 @@
         
         <div class="player-area opponent-right">
             <div class="player-info">
-                <span class="player-name">Opponent 3</span>
-                <span class="player-score">90</span>
+                <span class="player-name">Opponent</span>
             </div>
             <div class="player-cards vertical">
                 <!-- Cards will be added dynamically -->
@@ -68,7 +62,6 @@
         <div class="player-area current-player">
             <div class="player-info">
                 <span class="player-name">You</span>
-                <span class="player-score">110</span>
             </div>
             <div class="player-cards horizontal">
                 <!-- Cards will be added dynamically -->
@@ -78,6 +71,7 @@
     
     <div class="game-controls">
         <button id="btnPlayCard" class="btn-play-card">Play Selected Card</button>
+        <button id="btnRestartGame" class="btn-restart" style="display: none;">Restart Game</button>
     </div>
     
     <div class="game-info">
@@ -91,7 +85,7 @@
         $(document).ready(function() {
             // Card deck definition
             const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
-            const values = ['7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+            const values = ['7', '8', '9', 'J', 'Q', 'K', '10', 'A'];
             const suitSymbols = {
                 'hearts': '♥',
                 'diamonds': '♦',
@@ -99,18 +93,32 @@
                 'spades': '♠'
             };
             
+            // Card values and points for Belote
+            const cardValues = {
+                '7': { rank: 0, points: 0 },
+                '8': { rank: 1, points: 0 },
+                '9': { rank: 2, points: 0, trumpRank: 7, trumpPoints: 14 },
+                'J': { rank: 3, points: 2, trumpRank: 8, trumpPoints: 20 },
+                'Q': { rank: 4, points: 3 },
+                'K': { rank: 5, points: 4 },
+                '10': { rank: 6, points: 10 },
+                'A': { rank: 7, points: 11 }
+            };
+            
             // Game state
             var gameState = {
                 phase: "bidding",
                 currentPlayer: "You",
-                currentBid: 80,
-                currentBidder: "Opponent 1",
                 trump: null,
+                bidder: null,
                 deck: [],
                 playerHand: [],
-                opponentsHands: [[], [], []],
+                opponentsHands: [[], [], []], // [opponent-left, teammate-top, opponent-right]
                 playedCards: [null, null, null, null],
-                currentPlayerIndex: 0 // 0=You, 1=Opp1, 2=Opp2, 3=Opp3
+                currentPlayerIndex: 0, // 0=You, 1=Opponent-left, 2=Teammate-top, 3=Opponent-right
+                bidPasses: 0,
+                teamPoints: 0,
+                opponentPoints: 0
             };
             
             // Initialize deck
@@ -121,7 +129,11 @@
                         gameState.deck.push({
                             suit: suit,
                             value: value,
-                            symbol: suitSymbols[suit]
+                            symbol: suitSymbols[suit],
+                            rank: cardValues[value].rank,
+                            points: cardValues[value].points,
+                            trumpRank: cardValues[value].trumpRank || cardValues[value].rank,
+                            trumpPoints: cardValues[value].trumpPoints || cardValues[value].points
                         });
                     }
                 }
@@ -135,17 +147,66 @@
                 }
             }
             
-            // Deal cards (8 to each player)
-            function dealCards() {
+            // Deal initial 5 cards to each player
+            function dealInitialCards() {
                 // Deal to player (you)
-                gameState.playerHand = gameState.deck.slice(0, 8);
+                gameState.playerHand = gameState.deck.slice(0, 5);
                 
                 // Deal to opponents
-                gameState.opponentsHands[0] = gameState.deck.slice(8, 16);
-                gameState.opponentsHands[1] = gameState.deck.slice(16, 24);
-                gameState.opponentsHands[2] = gameState.deck.slice(24, 32);
+                gameState.opponentsHands[0] = gameState.deck.slice(5, 10);  // Opponent-left
+                gameState.opponentsHands[1] = gameState.deck.slice(10, 15); // Teammate-top
+                gameState.opponentsHands[2] = gameState.deck.slice(15, 20); // Opponent-right
+                
+                // Remove dealt cards from deck
+                gameState.deck = gameState.deck.slice(20);
                 
                 renderHands();
+            }
+            
+            // Deal remaining 3 cards after bidding
+            function dealRemainingCards() {
+                // Deal to player (you)
+                gameState.playerHand = gameState.playerHand.concat(gameState.deck.slice(0, 3));
+                
+                // Deal to opponents
+                gameState.opponentsHands[0] = gameState.opponentsHands[0].concat(gameState.deck.slice(3, 6));
+                gameState.opponentsHands[1] = gameState.opponentsHands[1].concat(gameState.deck.slice(6, 9));
+                gameState.opponentsHands[2] = gameState.opponentsHands[2].concat(gameState.deck.slice(9, 12));
+                
+                // Sort hands with trump knowledge
+                sortHandWithTrump(gameState.playerHand);
+                gameState.opponentsHands.forEach(hand => sortHandWithTrump(hand));
+                
+                renderHands();
+            }
+            
+            // Sort hand with trump knowledge
+            function sortHandWithTrump(hand) {
+                const suitOrder = { spades: 0, hearts: 1, diamonds: 2, clubs: 3 };
+                hand.sort((a, b) => {
+                    // Sort trumps first
+                    const aIsTrump = isTrump(a);
+                    const bIsTrump = isTrump(b);
+                    
+                    if (aIsTrump && !bIsTrump) return -1;
+                    if (!aIsTrump && bIsTrump) return 1;
+                    
+                    // Same trump status - sort by suit
+                    if (suitOrder[a.suit] !== suitOrder[b.suit]) {
+                        return suitOrder[a.suit] - suitOrder[b.suit];
+                    }
+                    
+                    // Same suit - sort by rank
+                    return (aIsTrump ? a.trumpRank : a.rank) - (bIsTrump ? b.trumpRank : b.rank);
+                });
+            }
+            
+            // Check if card is trump
+            function isTrump(card) {
+                if (!gameState.trump) return false;
+                if (gameState.trump === 'alltrumps') return true;
+                if (gameState.trump === 'notrump') return false;
+                return card.suit === gameState.trump;
             }
             
             // Render all hands
@@ -155,8 +216,9 @@
                 playerHandElement.empty();
                 
                 gameState.playerHand.forEach((card, index) => {
+                    const colorClass = (card.suit === 'hearts' || card.suit === 'diamonds') ? 'red' : 'black';
                     playerHandElement.append(`
-                        <div class="card player-card" data-card-index="${index}">
+                        <div class="card player-card ${colorClass}" data-card-index="${index}">
                             <div class="card-front">
                                 <span class="card-value">${card.value}</span>
                                 <span class="card-suit">${card.symbol}</span>
@@ -167,12 +229,12 @@
                 
                 // Render opponents' hands (just back of cards)
                 $('.opponent-top .player-cards').empty();
-                for (let i = 0; i < gameState.opponentsHands[0].length; i++) {
+                for (let i = 0; i < gameState.opponentsHands[1].length; i++) {
                     $('.opponent-top .player-cards').append('<div class="card opponent-card"></div>');
                 }
                 
                 $('.opponent-left .player-cards').empty();
-                for (let i = 0; i < gameState.opponentsHands[1].length; i++) {
+                for (let i = 0; i < gameState.opponentsHands[0].length; i++) {
                     $('.opponent-left .player-cards').append('<div class="card opponent-card"></div>');
                 }
                 
@@ -188,8 +250,9 @@
                 
                 gameState.playedCards.forEach((card, index) => {
                     if (card) {
+                        const colorClass = (card.suit === 'hearts' || card.suit === 'diamonds') ? 'red' : 'black';
                         $(`.card-placeholder[data-position="${index}"]`).html(`
-                            <div class="card played-card">
+                            <div class="card played-card ${colorClass}" style="transform: rotate(${(index-1)*5}deg);">
                                 <div class="card-front">
                                     <span class="card-value">${card.value}</span>
                                     <span class="card-suit">${card.symbol}</span>
@@ -200,48 +263,218 @@
                 });
             }
             
-            // Initialize game
+            // AI plays a card
+            function aiPlayCard(playerIndex) {
+                if (gameState.phase !== "playing") return;
+                
+                const hand = gameState.opponentsHands[playerIndex - 1]; // Adjust index for array
+                if (hand.length === 0) return;
+                
+                // Simple AI - play first card in hand
+                const cardIndex = 0;
+                const card = hand[cardIndex];
+                
+                // Play the card (add to center)
+                gameState.playedCards[playerIndex] = card;
+                renderPlayedCards();
+                
+                // Remove from hand
+                hand.splice(cardIndex, 1);
+                
+                // Update turn
+                nextTurn();
+            }
+            
+            // Move to next player's turn
+            function nextTurn() {
+                gameState.currentPlayerIndex = (gameState.currentPlayerIndex + 1) % 4;
+                const players = ["You", "Opponent", "Teammate", "Opponent"];
+                gameState.currentPlayer = players[gameState.currentPlayerIndex];
+                $('#currentTurn').text(gameState.currentPlayer);
+                
+                // Re-render hands
+                renderHands();
+                
+                // If trick is complete (all 4 players played)
+                if (gameState.playedCards.every(card => card !== null)) {
+                    evaluateTrick();
+                    return;
+                }
+                
+                // If it's an AI player's turn, have them play
+                if (gameState.currentPlayerIndex !== 0) {
+                    setTimeout(() => aiPlayCard(gameState.currentPlayerIndex), 1000);
+                }
+            }
+            
+            // Evaluate the completed trick
+            function evaluateTrick() {
+                const winningCard = getWinningCard();
+                const winningPlayerIndex = gameState.playedCards.indexOf(winningCard);
+                const winningPlayer = ["You", "Opponent", "Teammate", "Opponent"][winningPlayerIndex];
+                
+                // Calculate points in trick
+                const trickPoints = calculateTrickPoints();
+                
+                // Add points to appropriate team
+                if (winningPlayerIndex === 0 || winningPlayerIndex === 2) {
+                    // Your team (you and teammate) won
+                    gameState.teamPoints += trickPoints;
+                } else {
+                    // Opponents won
+                    gameState.opponentPoints += trickPoints;
+                }
+                
+                // Show who won the trick
+                $('#currentTurn').text(`${winningPlayer} wins the trick (${trickPoints} pts)`);
+                
+                // Clear played cards for next trick
+                gameState.playedCards = [null, null, null, null];
+                gameState.currentPlayerIndex = winningPlayerIndex;
+                gameState.currentPlayer = winningPlayer;
+                
+                // Check if round is over (all cards played)
+                if (gameState.playerHand.length === 0 && 
+                    gameState.opponentsHands.every(hand => hand.length === 0)) {
+                    endRound();
+                } else {
+                    // Continue to next trick
+                    setTimeout(() => {
+                        renderPlayedCards();
+                        $('#currentTurn').text(gameState.currentPlayer);
+                        if (gameState.currentPlayerIndex !== 0) {
+                            setTimeout(() => aiPlayCard(gameState.currentPlayerIndex), 1000);
+                        }
+                    }, 2000);
+                }
+            }
+            
+            // Determine the winning card in the trick
+            function getWinningCard() {
+                const leadSuit = gameState.playedCards[0].suit;
+                let winningCard = gameState.playedCards[0];
+                let highestRank = isTrump(winningCard) ? winningCard.trumpRank : winningCard.rank;
+                
+                for (let i = 1; i < gameState.playedCards.length; i++) {
+                    const card = gameState.playedCards[i];
+                    let currentRank;
+                    
+                    if (isTrump(card)) {
+                        currentRank = card.trumpRank;
+                        // If current winning card isn't trump, this one wins
+                        if (!isTrump(winningCard)) {
+                            winningCard = card;
+                            highestRank = currentRank;
+                        } else if (currentRank > highestRank) {
+                            winningCard = card;
+                            highestRank = currentRank;
+                        }
+                    } else if (card.suit === leadSuit && !isTrump(winningCard)) {
+                        currentRank = card.rank;
+                        if (currentRank > highestRank) {
+                            winningCard = card;
+                            highestRank = currentRank;
+                        }
+                    }
+                }
+                
+                return winningCard;
+            }
+            
+            // Calculate points in the current trick
+            function calculateTrickPoints() {
+                return gameState.playedCards.reduce((total, card) => {
+                    return total + (isTrump(card) ? card.trumpPoints : card.points);
+                }, 0);
+            }
+            
+            // End of round processing
+            function endRound() {
+                // Determine if bidding team made their contract
+                const biddingTeam = (gameState.bidder === 0 || gameState.bidder === 2) ? "your" : "opponent";
+                const biddingTeamPoints = (gameState.bidder === 0 || gameState.bidder === 2) ? 
+                    gameState.teamPoints : gameState.opponentPoints;
+                
+                let message;
+                if (biddingTeam === "your") {
+                    if (biddingTeamPoints >= 82) {
+                        message = "Your team made the contract!";
+                    } else {
+                        message = "Your team failed the contract! Opponents get all points.";
+                        gameState.opponentPoints = 162;
+                    }
+                } else {
+                    if (biddingTeamPoints >= 82) {
+                        message = "Opponents made their contract!";
+                    } else {
+                        message = "Opponents failed their contract! Your team gets all points.";
+                        gameState.teamPoints = 162;
+                    }
+                }
+                
+                $('#currentTurn').text(`Round over! ${message} (Your team: ${gameState.teamPoints} - Opponents: ${gameState.opponentPoints})`);
+                $('#btnPlayCard').hide();
+                $('#btnRestartGame').show();
+            }
+            
+            // Initialize game (deal initial 5 cards)
             function initializeGame() {
                 initializeDeck();
                 shuffleDeck();
-                dealCards();
+                dealInitialCards();
+                gameState.bidPasses = 0;
+                gameState.phase = "bidding";
+                $('#currentTurn').text("Bidding - Your turn");
+                $('#biddingStage').show();
+                $('#gameTable').hide();
+                $('#btnPlayCard').show();
+                $('#btnRestartGame').hide();
             }
             
             // Bidding phase handlers
             $('.btn-bid').click(function() {
                 var suit = $(this).data('suit');
-                if (suit === "notrump" || suit === "alltrumps") {
-                    gameState.trump = suit;
-                    endBiddingPhase();
-                } else {
-                    // For regular suits, increase bid
-                    gameState.currentBid += 10;
-                    gameState.currentBidder = "You";
-                    updateBidDisplay();
-                    // In real game, would wait for other players
-                    setTimeout(function() {
-                        gameState.currentBid += 10;
-                        gameState.currentBidder = "Opponent 2";
-                        updateBidDisplay();
-                    }, 1000);
-                }
+                gameState.trump = suit;
+                gameState.bidder = 0; // Player is the bidder
+                
+                // Deal remaining cards and start game
+                dealRemainingCards();
+                endBiddingPhase();
             });
             
             $('.btn-pass').click(function() {
-                alert("You passed. Waiting for other players...");
-                // In real game, would wait for other players
+                gameState.bidPasses++;
+                
+                if (gameState.bidPasses >= 4) {
+                    // All players passed - redeal
+                    alert("All players passed. Redealing cards...");
+                    initializeGame();
+                    return;
+                }
+                
+                // AI opponents take their turns to bid
                 setTimeout(function() {
-                    if (gameState.currentBidder !== "You") {
-                        gameState.trump = gameState.currentBidder + "'s choice";
+                    // Simple AI - 30% chance to bid
+                    if (Math.random() < 0.3) {
+                        const suits = ['clubs', 'diamonds', 'hearts', 'spades', 'notrump', 'alltrumps'];
+                        gameState.trump = suits[Math.floor(Math.random() * suits.length)];
+                        gameState.bidder = gameState.bidPasses + 1; // Next player is bidder
+                        
+                        // Deal remaining cards and start game
+                        dealRemainingCards();
                         endBiddingPhase();
+                    } else {
+                        // AI passes
+                        gameState.bidPasses++;
+                        if (gameState.bidPasses >= 4) {
+                            alert("All players passed. Redealing cards...");
+                            initializeGame();
+                        } else {
+                            alert(`Player ${gameState.bidPasses} passed. Waiting for next player...`);
+                        }
                     }
-                }, 1500);
+                }, 1000);
             });
-            
-            function updateBidDisplay() {
-                $('#currentBidValue').text(gameState.currentBid);
-                $('#currentBidder').text(gameState.currentBidder);
-            }
             
             function endBiddingPhase() {
                 $('#biddingStage').hide();
@@ -249,13 +482,19 @@
                 $('#currentTrump').text(gameState.trump);
                 $('#currentTurn').text(gameState.currentPlayer);
                 gameState.phase = "playing";
+                gameState.currentPlayerIndex = gameState.bidder;
+                gameState.currentPlayer = ["You", "Opponent", "Teammate", "Opponent"][gameState.bidder];
                 
-                // In a real game, you'd determine who is the taker here
+                // If bidder is not player, start AI turn
+                if (gameState.currentPlayerIndex !== 0) {
+                    setTimeout(() => aiPlayCard(gameState.currentPlayerIndex), 1000);
+                }
             }
             
             // Card play phase handlers
             $(document).on('click', '.player-card', function() {
                 if (gameState.phase !== "playing") return;
+                if (gameState.currentPlayerIndex !== 0) return; // Only allow when it's player's turn
                 
                 if ($(this).hasClass('selected')) {
                     $(this).removeClass('selected');
@@ -271,6 +510,11 @@
                     return;
                 }
                 
+                if (gameState.currentPlayerIndex !== 0) {
+                    alert("It's not your turn!");
+                    return;
+                }
+                
                 const selectedCard = $('.player-card.selected');
                 if (selectedCard.length) {
                     const cardIndex = selectedCard.data('card-index');
@@ -283,23 +527,16 @@
                     // Remove from hand
                     gameState.playerHand.splice(cardIndex, 1);
                     
-                    // Switch turn (simplified for demo)
-                    gameState.currentPlayerIndex = (gameState.currentPlayerIndex + 1) % 4;
-                    const players = ["You", "Opponent 1", "Opponent 2", "Opponent 3"];
-                    gameState.currentPlayer = players[gameState.currentPlayerIndex];
-                    $('#currentTurn').text(gameState.currentPlayer);
-                    
-                    // Re-render hands
-                    renderHands();
-                    
-                    // In a real game, you'd have logic for:
-                    // - All players playing their cards
-                    // - Determining who wins the trick
-                    // - Collecting the cards
-                    // - Starting a new trick
+                    // Move to next player's turn
+                    nextTurn();
                 } else {
                     alert('Please select a card to play');
                 }
+            });
+            
+            // Restart game handler
+            $('#btnRestartGame').click(function() {
+                initializeGame();
             });
             
             // Start the game
@@ -367,12 +604,6 @@
         background-color: #e0a800;
     }
     
-    .bid-info {
-        font-size: 18px;
-        font-weight: bold;
-        margin-top: 15px;
-    }
-    
     /* Game table styles */
     .game-table {
         position: relative;
@@ -396,13 +627,13 @@
     
     .opponent-left {
         top: 50%;
-        left: 30px;
+        left: 20px;
         transform: translateY(-50%);
     }
     
     .opponent-right {
         top: 50%;
-        right: 30px;
+        right: 20px;
         transform: translateY(-50%);
     }
     
@@ -425,25 +656,38 @@
     
     .player-cards.horizontal {
         flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 800px;
     }
     
     .player-cards.vertical {
         flex-direction: column;
         align-items: center;
+        max-height: 500px;
+        overflow: hidden;
     }
     
     .player-cards.vertical .card {
-        margin: 5px 0;
+        margin: 2px 0;
     }
     
     .card {
-        width: 110px;
-        height: 160px;
+        width: 90px;
+        height: 130px;
         background-color: white;
-        border-radius: 8px;
-        margin: 0 10px;
+        border-radius: 6px;
+        margin: 0 5px;
         position: relative;
         box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+    
+    .card.red {
+        color: #d40000;
+    }
+    
+    .card.black {
+        color: #222;
     }
     
     .opponent-card {
@@ -456,11 +700,11 @@
     }
     
     .player-card:hover {
-        transform: translateY(-15px);
+        transform: translateY(-10px);
     }
     
     .player-card.selected {
-        transform: translateY(-30px);
+        transform: translateY(-20px);
         box-shadow: 0 0 15px gold;
     }
     
@@ -476,16 +720,16 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 10px;
+        padding: 8px;
     }
     
     .card-value {
-        font-size: 26px;
+        font-size: 22px;
         font-weight: bold;
     }
     
     .card-suit {
-        font-size: 36px;
+        font-size: 30px;
     }
     
     .played-cards {
@@ -494,14 +738,12 @@
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
+        gap: 30px;
     }
     
     .card-placeholder {
-        width: 110px;
-        height: 160px;
-        border: 2px dashed rgba(255,255,255,0.5);
-        border-radius: 8px;
-        margin: 0 20px;
+        width: 100px;
+        height: 140px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -528,11 +770,38 @@
         background-color: #218838;
     }
     
+    .btn-restart {
+        padding: 15px 40px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: #dc3545;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        margin-left: 20px;
+    }
+    
+    .btn-restart:hover {
+        background-color: #c82333;
+    }
+    
     .game-info {
         display: flex;
         justify-content: center;
         gap: 40px;
         font-size: 20px;
         font-weight: bold;
+    }
+    
+    /* Team colors */
+    .opponent-top .player-info {
+        color: #4cc9f0; /* Blue for teammate */
+    }
+    
+    .opponent-left .player-info,
+    .opponent-right .player-info {
+        color: #ff6b6b; /* Red for opponents */
     }
 </style>
