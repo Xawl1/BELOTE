@@ -1,0 +1,179 @@
+@model DEMO2_ASP.Models.Game.GameState
+@{
+    ViewData["Title"] = "Play Belote";
+}
+
+<div class="game-container">
+    <!-- Opponent areas (top, left, right) -->
+    <div class="opponent-area" id="opponent1">
+        <div class="opponent-cards" id="opponent1-cards">
+            @foreach (var card in Model.Opponents[0].Hand)
+            {
+                <div class="card card-back"></div>
+            }
+        </div>
+        <div class="player-info" id="opponent1-info">
+            @Model.Opponents[0].Name (@Model.Opponents[0].Points pts)
+        </div>
+    </div>
+
+    <div class="opponent-area" id="opponent2">
+        <div class="opponent-cards vertical" id="opponent2-cards">
+            @foreach (var card in Model.Opponents[1].Hand)
+            {
+                <div class="card card-back"></div>
+            }
+        </div>
+        <div class="player-info" id="opponent2-info">
+            @Model.Opponents[1].Name (@Model.Opponents[1].Points pts)
+        </div>
+    </div>
+
+    <div class="opponent-area" id="opponent3">
+        <div class="opponent-cards vertical" id="opponent3-cards">
+            @foreach (var card in Model.Opponents[2].Hand)
+            {
+                <div class="card card-back"></div>
+            }
+        </div>
+        <div class="player-info" id="opponent3-info">
+            @Model.Opponents[2].Name (@Model.Opponents[2].Points pts)
+        </div>
+    </div>
+
+    <!-- Center playing area -->
+    <div class="center-area">
+        <div id="trick-cards">
+            @foreach (var card in Model.Trick)
+            {
+                <div class="card @(card.Color == "red" ? "card-red" : "card-black")">
+                    <div class="card-value">@card.ValueSymbol</div>
+                    <div class="card-suit">@card.SuitSymbol</div>
+                    <div class="card-value" style="align-self: flex-end; transform: rotate(180deg);">@card.ValueSymbol</div>
+                </div>
+            }
+        </div>
+
+        @if (Model.GamePhase == "bidding" && Model.CurrentPlayerIndex == 0)
+        {
+            <div class="bid-area" id="bid-area">
+                <h2>Choose Your Bid</h2>
+                <div class="bid-options">
+                    <button class="bid-button" data-suit="club">♣️ Club</button>
+                    <button class="bid-button" data-suit="diamond">♦️ Diamond</button>
+                    <button class="bid-button" data-suit="heart">♥️ Heart</button>
+                    <button class="bid-button" data-suit="spade">♠️ Spade</button>
+                    <button class="bid-button" data-suit="notrump">No Trump</button>
+                    <button class="bid-button" data-suit="alltrump">All Trump</button>
+                    <button class="bid-button" id="pass-button">Pass</button>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Player's hand -->
+    <div class="player-area">
+        <div id="player-hand">
+            @foreach (var card in Model.HumanPlayer.Hand)
+            {
+                <div class="card @(card.Color == "red" ? "card-red" : "card-black")" 
+                     data-id="@card.Id" data-suit="@card.Suit" data-value="@card.Value">
+                    <div class="card-value">@card.ValueSymbol</div>
+                    <div class="card-suit">@card.SuitSymbol</div>
+                    <div class="card-value" style="align-self: flex-end; transform: rotate(180deg);">@card.ValueSymbol</div>
+                </div>
+            }
+        </div>
+        <div class="player-info" id="player-info">
+            You (@Model.HumanPlayer.Points pts)
+        </div>
+    </div>
+
+    <!-- Game controls -->
+    <div class="controls">
+        <button id="play-button" disabled>Play Card</button>
+        <button id="restart-button">New Game</button>
+    </div>
+
+    <!-- Game status modal -->
+    <div class="game-status" id="game-status" style="display: none;">
+        <h2 id="status-title">Round Over</h2>
+        <p id="status-message"></p>
+        <button id="next-round-button">Continue</button>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        /* Your existing CSS from the original game */
+        :root {
+            --table-green: #2a6a2a;
+            --card-red: #d40000;
+            --card-black: #222;
+            --card-white: #f9f9f9;
+            --highlight: #ffeb3b;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Include all other CSS rules from your original game */
+        /* ... */
+    </style>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Card selection
+            $(document).on('click', '#player-hand .card', function() {
+                if (@Model.CurrentPlayerIndex !== 0) return;
+                
+                $('#player-hand .card').removeClass('selected');
+                $(this).addClass('selected');
+                $('#play-button').prop('disabled', false);
+            });
+
+            // Play card
+            $('#play-button').click(function() {
+                const cardId = $('.card.selected').data('id');
+                if (!cardId) return;
+
+                $.post('/Game/PlayCard', { cardId: cardId })
+                    .done(function(data) {
+                        if (data.success) {
+                            // Update UI or redirect if needed
+                            location.reload(); // Simple refresh for now
+                        }
+                    });
+            });
+
+            // Bidding
+            $('.bid-button').click(function() {
+                const suit = $(this).data('suit');
+                
+                $.post('/Game/MakeBid', { suit: suit })
+                    .done(function(data) {
+                        if (data.success) {
+                            if (data.gamePhase === 'playing') {
+                                $('#bid-area').hide();
+                            }
+                            location.reload();
+                        }
+                    });
+            });
+
+            // New game
+            $('#restart-button').click(function() {
+                $.post('/Game/NewGame')
+                    .done(function() {
+                        location.reload();
+                    });
+            });
+        });
+    </script>
+}

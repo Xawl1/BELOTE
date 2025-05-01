@@ -1,0 +1,156 @@
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/appsettings.Development.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/appsettings.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/MyMvcApp.staticwebassets.runtime.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/MyMvcApp
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/MyMvcApp.deps.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/MyMvcApp.runtimeconfig.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/MyMvcApp.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/MyMvcApp.pdb
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.AssemblyInfoInputs.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.AssemblyInfo.cs
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.csproj.CoreCompileInputs.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.MvcApplicationPartsAssemblyInfo.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.RazorAssemblyInfo.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.RazorAssemblyInfo.cs
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/staticwebassets.build.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/staticwebassets.development.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/staticwebassets/msbuild.MyMvcApp.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/staticwebassets/msbuild.build.MyMvcApp.props
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.MyMvcApp.props
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.MyMvcApp.props
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/scopedcss/bundle/MyMvcApp.styles.css
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/scopedcss/projectbundle/MyMvcApp.bundle.scp.css
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/refint/MyMvcApp.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.pdb
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.genruntimeconfig.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/ref/MyMvcApp.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.sourcelink.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.csproj.AssemblyReference.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/MySqlConnector.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.csproj.CopyComplete
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/appsettings.Development.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/appsettings.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/MyMvcApp.staticwebassets.runtime.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/MyMvcApp
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/MyMvcApp.deps.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/MyMvcApp.runtimeconfig.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/MyMvcApp.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/MyMvcApp.pdb
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/MySqlConnector.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.csproj.AssemblyReference.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.AssemblyInfoInputs.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.AssemblyInfo.cs
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.csproj.CoreCompileInputs.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.MvcApplicationPartsAssemblyInfo.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.RazorAssemblyInfo.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.RazorAssemblyInfo.cs
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.sourcelink.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/staticwebassets.build.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/staticwebassets.development.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/staticwebassets/msbuild.MyMvcApp.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/staticwebassets/msbuild.build.MyMvcApp.props
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.MyMvcApp.props
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.MyMvcApp.props
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/scopedcss/bundle/MyMvcApp.styles.css
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/scopedcss/projectbundle/MyMvcApp.bundle.scp.css
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.csproj.CopyComplete
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/refint/MyMvcApp.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.pdb
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/MyMvcApp.genruntimeconfig.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/Debug/net8.0/ref/MyMvcApp.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/bin/Debug/net8.0/BCrypt.Net-Next.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\appsettings.json
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\MyMvcApp.staticwebassets.runtime.json
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\MyMvcApp.exe
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\MyMvcApp.deps.json
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\MyMvcApp.runtimeconfig.json
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\MyMvcApp.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\MyMvcApp.pdb
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\MySqlConnector.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.csproj.AssemblyReference.cache
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.AssemblyInfoInputs.cache
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.AssemblyInfo.cs
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.csproj.CoreCompileInputs.cache
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.RazorAssemblyInfo.cache
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.RazorAssemblyInfo.cs
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.sourcelink.json
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\staticwebassets\msbuild.MyMvcApp.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\staticwebassets\msbuild.build.MyMvcApp.props
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.MyMvcApp.props
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.MyMvcApp.props
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\scopedcss\bundle\MyMvcApp.styles.css
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\scopedcss\projectbundle\MyMvcApp.bundle.scp.css
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.csproj.Up2Date
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\refint\MyMvcApp.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.pdb
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\MyMvcApp.genruntimeconfig.cache
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\obj\Debug\net8.0\ref\MyMvcApp.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\Google.Protobuf.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\MySql.Data.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll

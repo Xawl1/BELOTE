@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Профил";
+}
+
+<h1>Профил</h1>
+
+@if (ViewData["UserName"] != null)
+{
+    <p><strong>Име:</strong> @ViewData["UserName"]</p>
+    <p><strong>Роля:</strong> @ViewData["UserRole"]</p>
+}
+else
+{
+    <p>Не сте логнат. Моля, <a asp-controller="User" asp-action="Login">влезте в профила си</a>.</p>
+}

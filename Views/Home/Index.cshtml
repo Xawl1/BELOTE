@@ -1,0 +1,176 @@
+﻿@{
+    Layout = null; // Set to your layout page if needed, e.g., "_Layout"
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belote - Welcome</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #f1c40f;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        .welcome-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .welcome-message {
+            margin-bottom: 2rem;
+        }
+        .welcome-message p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .btn-play {
+            background-color: var(--secondary);
+        }
+        .btn-guide {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+        .card-symbols {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 2rem 0;
+            font-size: 2rem;
+        }
+        .card-symbols span {
+            transition: transform 0.3s;
+        }
+        .card-symbols span:hover {
+            transform: scale(1.5);
+        }
+        .heart { color: #e74c3c; }
+        .diamond { color: #e74c3c; }
+        .club { color: #2c3e50; }
+        .spade { color: #2c3e50; }
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .action-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Belote</h1>
+            <p class="subtitle">The Classic French Card Game</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="welcome-container">
+            <div class="welcome-message">
+                <h2>Welcome to Belote!</h2>
+                <p>Experience the thrill of this classic French card game that combines strategy, skill, and a bit of luck.</p>
+
+                <div class="card-symbols">
+                    <span class="heart">♥</span>
+                    <span class="diamond">♦</span>
+                    <span class="club">♣</span>
+                    <span class="spade">♠</span>
+                </div>
+
+                <p>Whether you're a beginner or an experienced player, we have everything you need to enjoy Belote online.</p>
+            </div>
+
+            <div class="action-buttons">
+                <a asp-controller="Game" asp-action="BeloteGame" class="btn btn-play">Play Belote</a>
+                <a asp-controller="Game" asp-action="BeloteGuide" class="btn btn-guide">Game Guide</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Belote Online | Created with ♥ for card game enthusiasts</p>
+    </footer>
+</body>
+</html>
