@@ -154,3 +154,14 @@ C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\runtimes\win
 C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
 C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.csproj.AssemblyReference.cache
+C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.AssemblyInfoInputs.cache
+C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.AssemblyInfo.cs
+C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.csproj.CoreCompileInputs.cache
+C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.RazorAssemblyInfo.cache
+C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.RazorAssemblyInfo.cs
+C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\refint\MyMvcApp.dll
+C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.pdb
