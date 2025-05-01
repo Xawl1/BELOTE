@@ -287,20 +287,22 @@
             
             // Move to next player's turn
             function nextTurn() {
-                gameState.currentPlayerIndex = (gameState.currentPlayerIndex + 1) % 4;
-                const players = ["You", "Opponent", "Teammate", "Opponent"];
+                // Decrement the currentPlayerIndex for counter-clockwise turns
+                gameState.currentPlayerIndex = (gameState.currentPlayerIndex - 1 + 4) % 4;
+
+                const players = ["You", "Opponent-left", "Teammate", "Opponent-right"];
                 gameState.currentPlayer = players[gameState.currentPlayerIndex];
                 $('#currentTurn').text(gameState.currentPlayer);
-                
+
                 // Re-render hands
                 renderHands();
-                
+
                 // If trick is complete (all 4 players played)
                 if (gameState.playedCards.every(card => card !== null)) {
                     evaluateTrick();
                     return;
                 }
-                
+
                 // If it's an AI player's turn, have them play
                 if (gameState.currentPlayerIndex !== 0) {
                     setTimeout(() => aiPlayCard(gameState.currentPlayerIndex), 1000);
@@ -509,24 +511,36 @@
                     alert("Bidding phase still in progress!");
                     return;
                 }
-                
+
                 if (gameState.currentPlayerIndex !== 0) {
                     alert("It's not your turn!");
                     return;
                 }
-                
+
                 const selectedCard = $('.player-card.selected');
                 if (selectedCard.length) {
                     const cardIndex = selectedCard.data('card-index');
                     const card = gameState.playerHand[cardIndex];
-                    
+
+                    // Enforce the rule: must play a card of the same suit as the first card if possible
+                    const leadCard = gameState.playedCards.find(c => c !== null); // First card in the trick
+                    if (leadCard) {
+                        const leadSuit = leadCard.suit;
+                        const hasMatchingSuit = gameState.playerHand.some(c => c.suit === leadSuit);
+
+                        if (hasMatchingSuit && card.suit !== leadSuit) {
+                            alert(`You must play a card of the ${leadSuit} suit if you have one.`);
+                            return;
+                        }
+                    }
+
                     // Play the card (add to center)
                     gameState.playedCards[gameState.currentPlayerIndex] = card;
                     renderPlayedCards();
-                    
+
                     // Remove from hand
                     gameState.playerHand.splice(cardIndex, 1);
-                    
+
                     // Move to next player's turn
                     nextTurn();
                 } else {
