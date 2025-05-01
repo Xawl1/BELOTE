@@ -165,3 +165,4 @@ C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.RazorA
 C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.dll
 C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\refint\MyMvcApp.dll
 C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.pdb
+C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\obj\Debug\net8.0\MyMvcApp.sourcelink.json
