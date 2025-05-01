@@ -1,179 +1,538 @@
-@model DEMO2_ASP.Models.Game.GameState
 @{
-    ViewData["Title"] = "Play Belote";
+    ViewBag.Title = "Belote Card Game";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="game-container">
-    <!-- Opponent areas (top, left, right) -->
-    <div class="opponent-area" id="opponent1">
-        <div class="opponent-cards" id="opponent1-cards">
-            @foreach (var card in Model.Opponents[0].Hand)
-            {
-                <div class="card card-back"></div>
-            }
+<div class="belote-game-container">
+    <h1>Belote</h1>
+    
+    <!-- Bidding Stage (visible initially) -->
+    <div id="biddingStage" class="bidding-stage">
+        <h2>Bidding Phase</h2>
+        <div class="bid-options">
+            <button class="btn-bid" data-suit="clubs">♣ Clubs</button>
+            <button class="btn-bid" data-suit="diamonds">♦ Diamonds</button>
+            <button class="btn-bid" data-suit="hearts">♥ Hearts</button>
+            <button class="btn-bid" data-suit="spades">♠ Spades</button>
+            <button class="btn-bid" data-suit="notrump">No Trump</button>
+            <button class="btn-bid" data-suit="alltrumps">All Trumps</button>
+            <button class="btn-pass">Pass</button>
         </div>
-        <div class="player-info" id="opponent1-info">
-            @Model.Opponents[0].Name (@Model.Opponents[0].Points pts)
-        </div>
-    </div>
-
-    <div class="opponent-area" id="opponent2">
-        <div class="opponent-cards vertical" id="opponent2-cards">
-            @foreach (var card in Model.Opponents[1].Hand)
-            {
-                <div class="card card-back"></div>
-            }
-        </div>
-        <div class="player-info" id="opponent2-info">
-            @Model.Opponents[1].Name (@Model.Opponents[1].Points pts)
+        <div class="bid-info">
+            Current bid: <span id="currentBidValue">80</span> by <span id="currentBidder">Opponent 1</span>
         </div>
     </div>
-
-    <div class="opponent-area" id="opponent3">
-        <div class="opponent-cards vertical" id="opponent3-cards">
-            @foreach (var card in Model.Opponents[2].Hand)
-            {
-                <div class="card card-back"></div>
-            }
-        </div>
-        <div class="player-info" id="opponent3-info">
-            @Model.Opponents[2].Name (@Model.Opponents[2].Points pts)
-        </div>
-    </div>
-
-    <!-- Center playing area -->
-    <div class="center-area">
-        <div id="trick-cards">
-            @foreach (var card in Model.Trick)
-            {
-                <div class="card @(card.Color == "red" ? "card-red" : "card-black")">
-                    <div class="card-value">@card.ValueSymbol</div>
-                    <div class="card-suit">@card.SuitSymbol</div>
-                    <div class="card-value" style="align-self: flex-end; transform: rotate(180deg);">@card.ValueSymbol</div>
-                </div>
-            }
-        </div>
-
-        @if (Model.GamePhase == "bidding" && Model.CurrentPlayerIndex == 0)
-        {
-            <div class="bid-area" id="bid-area">
-                <h2>Choose Your Bid</h2>
-                <div class="bid-options">
-                    <button class="bid-button" data-suit="club">♣️ Club</button>
-                    <button class="bid-button" data-suit="diamond">♦️ Diamond</button>
-                    <button class="bid-button" data-suit="heart">♥️ Heart</button>
-                    <button class="bid-button" data-suit="spade">♠️ Spade</button>
-                    <button class="bid-button" data-suit="notrump">No Trump</button>
-                    <button class="bid-button" data-suit="alltrump">All Trump</button>
-                    <button class="bid-button" id="pass-button">Pass</button>
-                </div>
+    
+    <!-- Main Game Table (hidden initially) -->
+    <div id="gameTable" class="game-table" style="display: none;">
+        <!-- Opponent players -->
+        <div class="player-area opponent-top">
+            <div class="player-info">
+                <span class="player-name">Opponent 1</span>
+                <span class="player-score">120</span>
             </div>
-        }
-    </div>
-
-    <!-- Player's hand -->
-    <div class="player-area">
-        <div id="player-hand">
-            @foreach (var card in Model.HumanPlayer.Hand)
-            {
-                <div class="card @(card.Color == "red" ? "card-red" : "card-black")" 
-                     data-id="@card.Id" data-suit="@card.Suit" data-value="@card.Value">
-                    <div class="card-value">@card.ValueSymbol</div>
-                    <div class="card-suit">@card.SuitSymbol</div>
-                    <div class="card-value" style="align-self: flex-end; transform: rotate(180deg);">@card.ValueSymbol</div>
-                </div>
-            }
+            <div class="player-cards horizontal">
+                <!-- Cards will be added dynamically -->
+            </div>
         </div>
-        <div class="player-info" id="player-info">
-            You (@Model.HumanPlayer.Points pts)
+        
+        <div class="player-area opponent-left">
+            <div class="player-info">
+                <span class="player-name">Opponent 2</span>
+                <span class="player-score">80</span>
+            </div>
+            <div class="player-cards vertical">
+                <!-- Cards will be added dynamically -->
+            </div>
+        </div>
+        
+        <div class="player-area opponent-right">
+            <div class="player-info">
+                <span class="player-name">Opponent 3</span>
+                <span class="player-score">90</span>
+            </div>
+            <div class="player-cards vertical">
+                <!-- Cards will be added dynamically -->
+            </div>
+        </div>
+        
+        <!-- Center of the table for played cards -->
+        <div class="played-cards">
+            <div class="card-placeholder" data-position="0"></div>
+            <div class="card-placeholder" data-position="1"></div>
+            <div class="card-placeholder" data-position="2"></div>
+            <div class="card-placeholder" data-position="3"></div>
+        </div>
+        
+        <!-- Current player -->
+        <div class="player-area current-player">
+            <div class="player-info">
+                <span class="player-name">You</span>
+                <span class="player-score">110</span>
+            </div>
+            <div class="player-cards horizontal">
+                <!-- Cards will be added dynamically -->
+            </div>
         </div>
     </div>
-
-    <!-- Game controls -->
-    <div class="controls">
-        <button id="play-button" disabled>Play Card</button>
-        <button id="restart-button">New Game</button>
+    
+    <div class="game-controls">
+        <button id="btnPlayCard" class="btn-play-card">Play Selected Card</button>
     </div>
-
-    <!-- Game status modal -->
-    <div class="game-status" id="game-status" style="display: none;">
-        <h2 id="status-title">Round Over</h2>
-        <p id="status-message"></p>
-        <button id="next-round-button">Continue</button>
+    
+    <div class="game-info">
+        <div class="current-trump">Trump: <span id="currentTrump">None</span></div>
+        <div class="current-turn">Current turn: <span id="currentTurn">Bidding</span></div>
     </div>
 </div>
 
-@section Styles {
-    <style>
-        /* Your existing CSS from the original game */
-        :root {
-            --table-green: #2a6a2a;
-            --card-red: #d40000;
-            --card-black: #222;
-            --card-white: #f9f9f9;
-            --highlight: #ffeb3b;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        
-        /* Include all other CSS rules from your original game */
-        /* ... */
-    </style>
-}
-
-@section Scripts {
+@section scripts {
     <script>
         $(document).ready(function() {
-            // Card selection
-            $(document).on('click', '#player-hand .card', function() {
-                if (@Model.CurrentPlayerIndex !== 0) return;
+            // Card deck definition
+            const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+            const values = ['7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+            const suitSymbols = {
+                'hearts': '♥',
+                'diamonds': '♦',
+                'clubs': '♣',
+                'spades': '♠'
+            };
+            
+            // Game state
+            var gameState = {
+                phase: "bidding",
+                currentPlayer: "You",
+                currentBid: 80,
+                currentBidder: "Opponent 1",
+                trump: null,
+                deck: [],
+                playerHand: [],
+                opponentsHands: [[], [], []],
+                playedCards: [null, null, null, null],
+                currentPlayerIndex: 0 // 0=You, 1=Opp1, 2=Opp2, 3=Opp3
+            };
+            
+            // Initialize deck
+            function initializeDeck() {
+                gameState.deck = [];
+                for (const suit of suits) {
+                    for (const value of values) {
+                        gameState.deck.push({
+                            suit: suit,
+                            value: value,
+                            symbol: suitSymbols[suit]
+                        });
+                    }
+                }
+            }
+            
+            // Shuffle deck
+            function shuffleDeck() {
+                for (let i = gameState.deck.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [gameState.deck[i], gameState.deck[j]] = [gameState.deck[j], gameState.deck[i]];
+                }
+            }
+            
+            // Deal cards (8 to each player)
+            function dealCards() {
+                // Deal to player (you)
+                gameState.playerHand = gameState.deck.slice(0, 8);
                 
-                $('#player-hand .card').removeClass('selected');
-                $(this).addClass('selected');
-                $('#play-button').prop('disabled', false);
-            });
-
-            // Play card
-            $('#play-button').click(function() {
-                const cardId = $('.card.selected').data('id');
-                if (!cardId) return;
-
-                $.post('/Game/PlayCard', { cardId: cardId })
-                    .done(function(data) {
-                        if (data.success) {
-                            // Update UI or redirect if needed
-                            location.reload(); // Simple refresh for now
-                        }
-                    });
-            });
-
-            // Bidding
-            $('.bid-button').click(function() {
-                const suit = $(this).data('suit');
+                // Deal to opponents
+                gameState.opponentsHands[0] = gameState.deck.slice(8, 16);
+                gameState.opponentsHands[1] = gameState.deck.slice(16, 24);
+                gameState.opponentsHands[2] = gameState.deck.slice(24, 32);
                 
-                $.post('/Game/MakeBid', { suit: suit })
-                    .done(function(data) {
-                        if (data.success) {
-                            if (data.gamePhase === 'playing') {
-                                $('#bid-area').hide();
-                            }
-                            location.reload();
-                        }
-                    });
+                renderHands();
+            }
+            
+            // Render all hands
+            function renderHands() {
+                // Render player's hand
+                const playerHandElement = $('.current-player .player-cards');
+                playerHandElement.empty();
+                
+                gameState.playerHand.forEach((card, index) => {
+                    playerHandElement.append(`
+                        <div class="card player-card" data-card-index="${index}">
+                            <div class="card-front">
+                                <span class="card-value">${card.value}</span>
+                                <span class="card-suit">${card.symbol}</span>
+                            </div>
+                        </div>
+                    `);
+                });
+                
+                // Render opponents' hands (just back of cards)
+                $('.opponent-top .player-cards').empty();
+                for (let i = 0; i < gameState.opponentsHands[0].length; i++) {
+                    $('.opponent-top .player-cards').append('<div class="card opponent-card"></div>');
+                }
+                
+                $('.opponent-left .player-cards').empty();
+                for (let i = 0; i < gameState.opponentsHands[1].length; i++) {
+                    $('.opponent-left .player-cards').append('<div class="card opponent-card"></div>');
+                }
+                
+                $('.opponent-right .player-cards').empty();
+                for (let i = 0; i < gameState.opponentsHands[2].length; i++) {
+                    $('.opponent-right .player-cards').append('<div class="card opponent-card"></div>');
+                }
+            }
+            
+            // Render played cards in center
+            function renderPlayedCards() {
+                $('.card-placeholder').empty();
+                
+                gameState.playedCards.forEach((card, index) => {
+                    if (card) {
+                        $(`.card-placeholder[data-position="${index}"]`).html(`
+                            <div class="card played-card">
+                                <div class="card-front">
+                                    <span class="card-value">${card.value}</span>
+                                    <span class="card-suit">${card.symbol}</span>
+                                </div>
+                            </div>
+                        `);
+                    }
+                });
+            }
+            
+            // Initialize game
+            function initializeGame() {
+                initializeDeck();
+                shuffleDeck();
+                dealCards();
+            }
+            
+            // Bidding phase handlers
+            $('.btn-bid').click(function() {
+                var suit = $(this).data('suit');
+                if (suit === "notrump" || suit === "alltrumps") {
+                    gameState.trump = suit;
+                    endBiddingPhase();
+                } else {
+                    // For regular suits, increase bid
+                    gameState.currentBid += 10;
+                    gameState.currentBidder = "You";
+                    updateBidDisplay();
+                    // In real game, would wait for other players
+                    setTimeout(function() {
+                        gameState.currentBid += 10;
+                        gameState.currentBidder = "Opponent 2";
+                        updateBidDisplay();
+                    }, 1000);
+                }
             });
-
-            // New game
-            $('#restart-button').click(function() {
-                $.post('/Game/NewGame')
-                    .done(function() {
-                        location.reload();
-                    });
+            
+            $('.btn-pass').click(function() {
+                alert("You passed. Waiting for other players...");
+                // In real game, would wait for other players
+                setTimeout(function() {
+                    if (gameState.currentBidder !== "You") {
+                        gameState.trump = gameState.currentBidder + "'s choice";
+                        endBiddingPhase();
+                    }
+                }, 1500);
             });
+            
+            function updateBidDisplay() {
+                $('#currentBidValue').text(gameState.currentBid);
+                $('#currentBidder').text(gameState.currentBidder);
+            }
+            
+            function endBiddingPhase() {
+                $('#biddingStage').hide();
+                $('#gameTable').show();
+                $('#currentTrump').text(gameState.trump);
+                $('#currentTurn').text(gameState.currentPlayer);
+                gameState.phase = "playing";
+                
+                // In a real game, you'd determine who is the taker here
+            }
+            
+            // Card play phase handlers
+            $(document).on('click', '.player-card', function() {
+                if (gameState.phase !== "playing") return;
+                
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                } else {
+                    $('.player-card').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+            
+            $('#btnPlayCard').click(function() {
+                if (gameState.phase !== "playing") {
+                    alert("Bidding phase still in progress!");
+                    return;
+                }
+                
+                const selectedCard = $('.player-card.selected');
+                if (selectedCard.length) {
+                    const cardIndex = selectedCard.data('card-index');
+                    const card = gameState.playerHand[cardIndex];
+                    
+                    // Play the card (add to center)
+                    gameState.playedCards[gameState.currentPlayerIndex] = card;
+                    renderPlayedCards();
+                    
+                    // Remove from hand
+                    gameState.playerHand.splice(cardIndex, 1);
+                    
+                    // Switch turn (simplified for demo)
+                    gameState.currentPlayerIndex = (gameState.currentPlayerIndex + 1) % 4;
+                    const players = ["You", "Opponent 1", "Opponent 2", "Opponent 3"];
+                    gameState.currentPlayer = players[gameState.currentPlayerIndex];
+                    $('#currentTurn').text(gameState.currentPlayer);
+                    
+                    // Re-render hands
+                    renderHands();
+                    
+                    // In a real game, you'd have logic for:
+                    // - All players playing their cards
+                    // - Determining who wins the trick
+                    // - Collecting the cards
+                    // - Starting a new trick
+                } else {
+                    alert('Please select a card to play');
+                }
+            });
+            
+            // Start the game
+            initializeGame();
         });
     </script>
 }
+
+<style>
+    .belote-game-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+    }
+    
+    /* Bidding stage styles */
+    .bidding-stage {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .bid-options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+    }
+    
+    .btn-bid, .btn-pass {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.3s;
+    }
+    
+    .btn-bid {
+        background-color: #007bff;
+        color: white;
+    }
+    
+    .btn-bid:hover {
+        background-color: #0069d9;
+    }
+    
+    .btn-bid[data-suit="clubs"] { background-color: #343a40; }
+    .btn-bid[data-suit="diamonds"] { background-color: #dc3545; }
+    .btn-bid[data-suit="hearts"] { background-color: #dc3545; }
+    .btn-bid[data-suit="spades"] { background-color: #343a40; }
+    .btn-bid[data-suit="notrump"] { background-color: #6c757d; }
+    .btn-bid[data-suit="alltrumps"] { background-color: #28a745; }
+    
+    .btn-pass {
+        background-color: #ffc107;
+        color: #212529;
+    }
+    
+    .btn-pass:hover {
+        background-color: #e0a800;
+    }
+    
+    .bid-info {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+    
+    /* Game table styles */
+    .game-table {
+        position: relative;
+        height: 800px;
+        width: 100%;
+        background-color: #2a6d2a;
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 20px;
+    }
+    
+    .player-area {
+        position: absolute;
+    }
+    
+    .opponent-top {
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .opponent-left {
+        top: 50%;
+        left: 30px;
+        transform: translateY(-50%);
+    }
+    
+    .opponent-right {
+        top: 50%;
+        right: 30px;
+        transform: translateY(-50%);
+    }
+    
+    .current-player {
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .player-info {
+        text-align: center;
+        color: white;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+    
+    .player-cards {
+        display: flex;
+    }
+    
+    .player-cards.horizontal {
+        flex-direction: row;
+    }
+    
+    .player-cards.vertical {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .player-cards.vertical .card {
+        margin: 5px 0;
+    }
+    
+    .card {
+        width: 110px;
+        height: 160px;
+        background-color: white;
+        border-radius: 8px;
+        margin: 0 10px;
+        position: relative;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+    
+    .opponent-card {
+        background-color: #ddd;
+    }
+    
+    .player-card {
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    
+    .player-card:hover {
+        transform: translateY(-15px);
+    }
+    
+    .player-card.selected {
+        transform: translateY(-30px);
+        box-shadow: 0 0 15px gold;
+    }
+    
+    .played-card {
+        position: relative;
+        box-shadow: 0 0 10px rgba(255,255,255,0.7);
+    }
+    
+    .card-front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px;
+    }
+    
+    .card-value {
+        font-size: 26px;
+        font-weight: bold;
+    }
+    
+    .card-suit {
+        font-size: 36px;
+    }
+    
+    .played-cards {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+    }
+    
+    .card-placeholder {
+        width: 110px;
+        height: 160px;
+        border: 2px dashed rgba(255,255,255,0.5);
+        border-radius: 8px;
+        margin: 0 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .game-controls {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .btn-play-card {
+        padding: 15px 40px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: #28a745;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+    
+    .btn-play-card:hover {
+        background-color: #218838;
+    }
+    
+    .game-info {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
