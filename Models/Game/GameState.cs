@@ -6,7 +6,7 @@ public class GameState
     public List<Player> Opponents { get; set; } = new List<Player>();
     public List<Card> Trick { get; set; } = new List<Card>();
     public int CurrentPlayerIndex { get; set; }
-    public string TrumpSuit { get; set; }
+    public string TrumpSuit { get; set; } = string.Empty;
     public int? BidderIndex { get; set; }
     public int TeamPoints { get; set; }
     public int OpponentTeamPoints { get; set; }

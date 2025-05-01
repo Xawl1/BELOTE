@@ -12,23 +12,23 @@ namespace MyMvcApp.Models
         [Required(ErrorMessage = "Моля, въведете име.")]
         [StringLength(50, ErrorMessage = "Името трябва да бъде до 50 символа.")]
         [Column("FirstName")]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Моля, въведете фамилия.")]
         [StringLength(50, ErrorMessage = "Фамилията трябва да бъде до 50 символа.")]
         [Column("LastName")]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Моля, въведете имейл.")]
         [EmailAddress(ErrorMessage = "Моля, въведете валиден имейл.")]
         [Column("Email")]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Моля, въведете парола.")]
         [MinLength(6, ErrorMessage = "Паролата трябва да бъде поне 6 символа.")]
         [RegularExpression(@"^(?=.*[A-Z]).+$", ErrorMessage = "Паролата трябва да съдържа поне една главна буква.")]
         [Column("Password")]
-        public string Password { get; set; }
+        public string Password { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Моля, изберете роля.")]
         [Column("Role")]

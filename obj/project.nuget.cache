@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T3OgnA5HdHq+FstcK11TIvNQzsbio+/zjLoACywgqTaykOb0pWUAbebkGbGZP/Gs2KWrZbgQTj/XB1EIvmwkOw==",
+  "dgSpecHash": "PoWIhb8RrJykr1PXMfpP3tRanAkC2RYx9umUCt1gp6mYf45zWs1tGjbk/GABlkQp+jdmH5CJS/In3Q2nVcBXqg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\DEMO2_ASP\\MyMvcApp.csproj",
+  "projectFilePath": "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\BELOTE\\MyMvcApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sanda\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\sanda\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",

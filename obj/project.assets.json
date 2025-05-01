@@ -2367,11 +2367,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\DEMO2_ASP\\MyMvcApp.csproj",
+      "projectUniqueName": "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\BELOTE\\MyMvcApp.csproj",
       "projectName": "MyMvcApp",
-      "projectPath": "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\DEMO2_ASP\\MyMvcApp.csproj",
+      "projectPath": "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\BELOTE\\MyMvcApp.csproj",
       "packagesPath": "C:\\Users\\sanda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\DEMO2_ASP\\obj\\",
+      "outputPath": "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\BELOTE\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sanda\\AppData\\Roaming\\NuGet\\NuGet.Config",

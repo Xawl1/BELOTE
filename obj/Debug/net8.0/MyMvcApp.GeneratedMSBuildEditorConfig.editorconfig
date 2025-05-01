@@ -9,71 +9,71 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MyMvcApp
 build_property.RootNamespace = MyMvcApp
-build_property.ProjectDir = C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP\
+build_property.ProjectDir = C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\sanda\OneDrive\Documents\GitHub\DEMO2_ASP
+build_property.MSBuildProjectDirectory = C:\Users\sanda\OneDrive\Documents\GitHub\BELOTE
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/Game/BeloteGame.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/Game/BeloteGame.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxCZWxvdGVHYW1lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/Game/BeloteGuide.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/Game/BeloteGuide.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxCZWxvdGVHdWlkZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/Home/Index.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/Home/Privacy.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/Shared/Error.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/User/Edit.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/User/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/User/Login.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/User/Profil.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/User/Profil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/User/Register.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/User/Success.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/User/Success.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTdWNjZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/User/Users.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/User/Users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/_ViewImports.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/_ViewStart.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sanda/OneDrive/Documents/GitHub/DEMO2_ASP/Views/Shared/_Layout.cshtml]
+[C:/Users/sanda/OneDrive/Documents/GitHub/BELOTE/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ujr1yed5n4
