@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\BELOTE\\MyMvcApp.csproj": {}
+    "D:\\it-kariera\\BELOTE\\MyMvcApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\BELOTE\\MyMvcApp.csproj": {
+    "D:\\it-kariera\\BELOTE\\MyMvcApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\BELOTE\\MyMvcApp.csproj",
+        "projectUniqueName": "D:\\it-kariera\\BELOTE\\MyMvcApp.csproj",
         "projectName": "MyMvcApp",
-        "projectPath": "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\BELOTE\\MyMvcApp.csproj",
-        "packagesPath": "C:\\Users\\sanda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sanda\\OneDrive\\Documents\\GitHub\\BELOTE\\obj\\",
+        "projectPath": "D:\\it-kariera\\BELOTE\\MyMvcApp.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\it-kariera\\BELOTE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

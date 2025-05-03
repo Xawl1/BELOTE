@@ -5,13 +5,13 @@ namespace DEMO2_ASP.Extensions
 {
     public static class SessionExtensions
     {
-        // Stores an object in session as JSON
+        // Пази обект във сесията като JSON
         public static void Set<T>(this ISession session, string key, T value)
         {
             session.SetString(key, JsonSerializer.Serialize(value));
         }
 
-        // Retrieves an object from session
+        // Връща обект от сесията, ако съществува, или null
         public static T? Get<T>(this ISession session, string key)
         {
             var value = session.GetString(key);

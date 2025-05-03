@@ -80,28 +80,28 @@ public class BeloteGameService
     }
     public void MakeBid(GameState gameState, string suit)
 {
-    // Validate if the game is still in the bidding phase
+    
     if (gameState.GamePhase != "bidding")
     {
         throw new InvalidOperationException("The game is not in the bidding phase.");
     }
 
-    // If no bidder exists, assign the first bidder
+    
     if (gameState.BidderIndex == null)
     {
         gameState.BidderIndex = gameState.CurrentPlayerIndex;
-        gameState.TrumpSuit = suit;  // Assign the chosen suit as the trump suit
+        gameState.TrumpSuit = suit;  
     }
     else
     {
-        // If a bidder exists, update points or move to the next phase
-        gameState.GamePhase = "playing";  // Change the phase from bidding to playing
+       
+        gameState.GamePhase = "playing";  
     }
 
-    // Move to the next player
+   
     gameState.CurrentPlayerIndex = (gameState.CurrentPlayerIndex + 1) % 4;
 
-    // Optionally, you can add other logic here, such as tracking bid passes, updating scores, etc.
+    
 }
 
 
@@ -122,7 +122,7 @@ public class BeloteGameService
             opponent.Hand.Clear();
         }
 
-        // Deal 5 cards to each player initially
+        
         for (int i = 0; i < 5; i++)
         {
             state.HumanPlayer.Hand.Add(state.Deck.Last());
@@ -140,11 +140,11 @@ public class BeloteGameService
 
     public void PlayCard(GameState gameState, string cardId)
 {
-    // Locate the player
+   
      var player = gameState.CurrentPlayer;
     if (player == null) return;
 
-    // Find and remove the card from their hand
+    
     var card = player.Hand.FirstOrDefault(c => c.Id == cardId);
     if (card != null)
     {
@@ -154,6 +154,5 @@ public class BeloteGameService
 }
 
 
-    // Other game methods (PlayCard, EvaluateTrick, etc.) would go here
-    // These would be similar to your JavaScript functions but in C#
+    
 }

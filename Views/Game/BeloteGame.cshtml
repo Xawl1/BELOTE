@@ -1,56 +1,56 @@
 @{
-    ViewBag.Title = "Belote Card Game";
+    ViewBag.Title = "Игра Белот";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="belote-game-container">
-    <h1>Belote</h1>
+    <h1>Белот</h1>
     
-    <!-- Bidding Stage (visible initially) -->
+   
     <div id="biddingStage" class="bidding-stage">
-        <h2>Bidding Phase</h2>
+        <h2>Фаза на наддаване</h2>
         <div class="bid-options">
-            <button class="btn-bid" data-suit="clubs">♣ Clubs</button>
-            <button class="btn-bid" data-suit="diamonds">♦ Diamonds</button>
-            <button class="btn-bid" data-suit="hearts">♥ Hearts</button>
-            <button class="btn-bid" data-suit="spades">♠ Spades</button>
-            <button class="btn-bid" data-suit="notrump">No Trump</button>
-            <button class="btn-bid" data-suit="alltrumps">All Trumps</button>
-            <button class="btn-pass">Pass</button>
+            <button class="btn-bid" data-suit="clubs">♣ Спатия</button>
+            <button class="btn-bid" data-suit="diamonds">♦ Каро</button>
+            <button class="btn-bid" data-suit="hearts">♥ Купа</button>
+            <button class="btn-bid" data-suit="spades">♠ Пика</button>
+            <button class="btn-bid" data-suit="notrump">Без коз</button>
+            <button class="btn-bid" data-suit="alltrumps">Всичкo коз</button>
+            <button class="btn-pass">Пас</button>
         </div>
     </div>
     
-    <!-- Main Game Table (hidden initially) -->
+    <!-- Игрална маса която е скрита първоначално понеже не успчхме да я направим открита -->
     <div id="gameTable" class="game-table" style="display: none;">
-        <!-- Opponent players -->
+        <!-- Противници -->
         <div class="player-area opponent-top">
             <div class="player-info">
-                <span class="player-name">Teammate</span>
+                <span class="player-name">Съотборник</span>
             </div>
             <div class="player-cards horizontal">
-                <!-- Cards will be added dynamically -->
+                <!-- Картите ще се добавят динамично -->
             </div>
         </div>
         
         <div class="player-area opponent-left">
             <div class="player-info">
-                <span class="player-name">Opponent</span>
+                <span class="player-name">Противник</span>
             </div>
             <div class="player-cards vertical">
-                <!-- Cards will be added dynamically -->
+                <!-- Картите ще се добавят динамично -->
             </div>
         </div>
         
         <div class="player-area opponent-right">
             <div class="player-info">
-                <span class="player-name">Opponent</span>
+                <span class="player-name">Противник</span>
             </div>
             <div class="player-cards vertical">
-                <!-- Cards will be added dynamically -->
+                
             </div>
         </div>
         
-        <!-- Center of the table for played cards -->
+        <!-- Център на масата за изиграни карти -->
         <div class="played-cards">
             <div class="card-placeholder" data-position="0"></div>
             <div class="card-placeholder" data-position="1"></div>
@@ -58,32 +58,31 @@
             <div class="card-placeholder" data-position="3"></div>
         </div>
         
-        <!-- Current player -->
+        <!-- Текущ играч -->
         <div class="player-area current-player">
             <div class="player-info">
-                <span class="player-name">You</span>
+                <span class="player-name">Вие</span>
             </div>
             <div class="player-cards horizontal">
-                <!-- Cards will be added dynamically -->
             </div>
         </div>
     </div>
     
     <div class="game-controls">
-        <button id="btnPlayCard" class="btn-play-card">Play Selected Card</button>
-        <button id="btnRestartGame" class="btn-restart" style="display: none;">Restart Game</button>
+        <button id="btnPlayCard" class="btn-play-card">Играй избраната карта</button>
+        <button id="btnRestartGame" class="btn-restart" style="display: none;">Нова игра</button>
     </div>
     
     <div class="game-info">
-        <div class="current-trump">Trump: <span id="currentTrump">None</span></div>
-        <div class="current-turn">Current turn: <span id="currentTurn">Bidding</span></div>
+        <div class="current-trump">Коз: <span id="currentTrump">Няма</span></div>
+        <div class="current-turn">Ход: <span id="currentTurn">Наддаване</span></div>
     </div>
 </div>
 
 @section scripts {
     <script>
         $(document).ready(function() {
-            // Card deck definition
+            // Дефиниране на тестето
             const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
             const values = ['7', '8', '9', 'J', 'Q', 'K', '10', 'A'];
             const suitSymbols = {
@@ -93,7 +92,7 @@
                 'spades': '♠'
             };
             
-            // Card values and points for Belote
+            // Стойности и точки на картите за Белот
             const cardValues = {
                 '7': { rank: 0, points: 0 },
                 '8': { rank: 1, points: 0 },
@@ -105,23 +104,23 @@
                 'A': { rank: 7, points: 11 }
             };
             
-            // Game state
+            // Състояние на играта
             var gameState = {
                 phase: "bidding",
-                currentPlayer: "You",
+                currentPlayer: "Вие",
                 trump: null,
                 bidder: null,
                 deck: [],
                 playerHand: [],
-                opponentsHands: [[], [], []], // [opponent-left, teammate-top, opponent-right]
+                opponentsHands: [[], [], []], // [противник-ляво, съотборник-горе, противник-дясно]
                 playedCards: [null, null, null, null],
-                currentPlayerIndex: 0, // 0=You, 1=Opponent-left, 2=Teammate-top, 3=Opponent-right
+                currentPlayerIndex: 0, // 0=Вие, 1=Противник-ляво, 2=Съотборник-горе, 3=Противник-дясно
                 bidPasses: 0,
                 teamPoints: 0,
                 opponentPoints: 0
             };
             
-            // Initialize deck
+            // Инициализиране на тестето
             function initializeDeck() {
                 gameState.deck = [];
                 for (const suit of suits) {
@@ -139,7 +138,7 @@
                 }
             }
             
-            // Shuffle deck
+            // Разбъркване на тестето
             function shuffleDeck() {
                 for (let i = gameState.deck.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
@@ -147,71 +146,71 @@
                 }
             }
             
-            // Deal initial 5 cards to each player
+            // Раздаване на началните 5 карти
             function dealInitialCards() {
-                // Deal to player (you)
+                // Раздаване на играча (вас)
                 gameState.playerHand = gameState.deck.slice(0, 5);
                 
-                // Deal to opponents
-                gameState.opponentsHands[0] = gameState.deck.slice(5, 10);  // Opponent-left
-                gameState.opponentsHands[1] = gameState.deck.slice(10, 15); // Teammate-top
-                gameState.opponentsHands[2] = gameState.deck.slice(15, 20); // Opponent-right
+                // Раздаване на противниците
+                gameState.opponentsHands[0] = gameState.deck.slice(5, 10);  // Противник-ляво
+                gameState.opponentsHands[1] = gameState.deck.slice(10, 15); // Съотборник-горе
+                gameState.opponentsHands[2] = gameState.deck.slice(15, 20); // Противник-дясно
                 
-                // Remove dealt cards from deck
+                // Премахване на раздадените карти от тестето
                 gameState.deck = gameState.deck.slice(20);
                 
                 renderHands();
             }
             
-            // Deal remaining 3 cards after bidding
+            // Раздаване на останалите 3 карти след наддаване
             function dealRemainingCards() {
-                // Deal to player (you)
+                // Раздаване на играча (вас)
                 gameState.playerHand = gameState.playerHand.concat(gameState.deck.slice(0, 3));
                 
-                // Deal to opponents
+                // Раздаване на противниците
                 gameState.opponentsHands[0] = gameState.opponentsHands[0].concat(gameState.deck.slice(3, 6));
                 gameState.opponentsHands[1] = gameState.opponentsHands[1].concat(gameState.deck.slice(6, 9));
                 gameState.opponentsHands[2] = gameState.opponentsHands[2].concat(gameState.deck.slice(9, 12));
                 
-                // Sort hands with trump knowledge
+                // Сортиране на ръцете с познание за коз
                 sortHandWithTrump(gameState.playerHand);
                 gameState.opponentsHands.forEach(hand => sortHandWithTrump(hand));
                 
                 renderHands();
             }
             
-            // Sort hand with trump knowledge
+            // Сортиране на ръка с познание за коз
             function sortHandWithTrump(hand) {
                 const suitOrder = { spades: 0, hearts: 1, diamonds: 2, clubs: 3 };
                 hand.sort((a, b) => {
-                    // Sort trumps first
+                    // Сортиране на козовите карти първо
                     const aIsTrump = isTrump(a);
                     const bIsTrump = isTrump(b);
                     
                     if (aIsTrump && !bIsTrump) return -1;
                     if (!aIsTrump && bIsTrump) return 1;
                     
-                    // Same trump status - sort by suit
+                    // Същия козов статус - сортиране по цвят
                     if (suitOrder[a.suit] !== suitOrder[b.suit]) {
                         return suitOrder[a.suit] - suitOrder[b.suit];
                     }
                     
-                    // Same suit - sort by rank
+                    // Същия цвят - сортиране по ранг
                     return (aIsTrump ? a.trumpRank : a.rank) - (bIsTrump ? b.trumpRank : b.rank);
                 });
             }
             
-            // Check if card is trump
+            // Проверка дали картата е коз
             function isTrump(card) {
                 if (!gameState.trump) return false;
-                if (gameState.trump === 'alltrumps') return true;
-                if (gameState.trump === 'notrump') return false;
+                if (gameState.trump === 'Всичко коз') return true;
+                if (gameState.trump === 'Без коз') return false;
                 return card.suit === gameState.trump;
             }
             
-            // Render all hands
+            // Показване на всички ръце
             function renderHands() {
-                // Render player's hand
+                // Показване на ръката на играча
                 const playerHandElement = $('.current-player .player-cards');
                 playerHandElement.empty();
                 
@@ -227,7 +226,7 @@
                     `);
                 });
                 
-                // Render opponents' hands (just back of cards)
+                // Показване на ръцете на противниците (само гърбове)
                 $('.opponent-top .player-cards').empty();
                 for (let i = 0; i < gameState.opponentsHands[1].length; i++) {
                     $('.opponent-top .player-cards').append('<div class="card opponent-card"></div>');
@@ -244,7 +243,7 @@
                 }
             }
             
-            // Render played cards in center
+            // Показване на изиграните карти в центъра
             function renderPlayedCards() {
                 $('.card-placeholder').empty();
                 
@@ -263,84 +262,84 @@
                 });
             }
             
-            // AI plays a card
+            // ИИ играе карта
             function aiPlayCard(playerIndex) {
                 if (gameState.phase !== "playing") return;
                 
-                const hand = gameState.opponentsHands[playerIndex - 1]; // Adjust index for array
+                const hand = gameState.opponentsHands[playerIndex - 1]; // Коригиране на индекса за масива
                 if (hand.length === 0) return;
                 
-                // Simple AI - play first card in hand
+                // Опростен ИИ - играе първата карта в ръката
                 const cardIndex = 0;
                 const card = hand[cardIndex];
                 
-                // Play the card (add to center)
+                // Игране на картата (добавяне в центъра)
                 gameState.playedCards[playerIndex] = card;
                 renderPlayedCards();
                 
-                // Remove from hand
+                // Премахване от ръката
                 hand.splice(cardIndex, 1);
                 
-                // Update turn
+                // Следващ ход
                 nextTurn();
             }
             
-            // Move to next player's turn
+            // Преминаване към хода на следващия играч
             function nextTurn() {
-                // Decrement the currentPlayerIndex for counter-clockwise turns
+                // Намаляване на currentPlayerIndex за ходове обратно на часовниковата стрелка
                 gameState.currentPlayerIndex = (gameState.currentPlayerIndex - 1 + 4) % 4;
 
-                const players = ["You", "Opponent-left", "Teammate", "Opponent-right"];
+                const players = ["Вие", "Противник-ляво", "Съотборник", "Противник-дясно"];
                 gameState.currentPlayer = players[gameState.currentPlayerIndex];
                 $('#currentTurn').text(gameState.currentPlayer);
 
-                // Re-render hands
+                // Прерисуване на ръцете
                 renderHands();
 
-                // If trick is complete (all 4 players played)
+                // Ако взятката е завършена (всички 4 играчи са играли)
                 if (gameState.playedCards.every(card => card !== null)) {
                     evaluateTrick();
                     return;
                 }
 
-                // If it's an AI player's turn, have them play
+                // Ако е ход на ИИ играч, той играе
                 if (gameState.currentPlayerIndex !== 0) {
                     setTimeout(() => aiPlayCard(gameState.currentPlayerIndex), 1000);
                 }
             }
             
-            // Evaluate the completed trick
+            // Оценка на завършената взятка
             function evaluateTrick() {
                 const winningCard = getWinningCard();
                 const winningPlayerIndex = gameState.playedCards.indexOf(winningCard);
-                const winningPlayer = ["You", "Opponent", "Teammate", "Opponent"][winningPlayerIndex];
+                const winningPlayer = ["Вие", "Противник", "Съотборник", "Противник"][winningPlayerIndex];
                 
-                // Calculate points in trick
+                // Изчисляване на точките във взятката
                 const trickPoints = calculateTrickPoints();
                 
-                // Add points to appropriate team
+                // Добавяне на точки към съответния отбор
                 if (winningPlayerIndex === 0 || winningPlayerIndex === 2) {
-                    // Your team (you and teammate) won
+                    // Вашият отбор (вие и съотборник) спечели
                     gameState.teamPoints += trickPoints;
                 } else {
-                    // Opponents won
+                    // Противниците спечелиха
                     gameState.opponentPoints += trickPoints;
                 }
                 
-                // Show who won the trick
-                $('#currentTurn').text(`${winningPlayer} wins the trick (${trickPoints} pts)`);
+                // Показване кой спечели 
+                $('#currentTurn').text(`${winningPlayer} спечели взятката (${trickPoints} т.)`);
                 
-                // Clear played cards for next trick
+                // Изчистване на изиграните карти за следващата взятка
                 gameState.playedCards = [null, null, null, null];
                 gameState.currentPlayerIndex = winningPlayerIndex;
                 gameState.currentPlayer = winningPlayer;
                 
-                // Check if round is over (all cards played)
+                // Проверка дали рундът е завършен (всички карти изиграни)
                 if (gameState.playerHand.length === 0 && 
                     gameState.opponentsHands.every(hand => hand.length === 0)) {
                     endRound();
                 } else {
-                    // Continue to next trick
+                    // Продължаване към следващата взятка
                     setTimeout(() => {
                         renderPlayedCards();
                         $('#currentTurn').text(gameState.currentPlayer);
@@ -351,7 +350,7 @@
                 }
             }
             
-            // Determine the winning card in the trick
+            // Определяне на печелившата карта във взятката
             function getWinningCard() {
                 const leadSuit = gameState.playedCards[0].suit;
                 let winningCard = gameState.playedCards[0];
@@ -363,7 +362,7 @@
                     
                     if (isTrump(card)) {
                         currentRank = card.trumpRank;
-                        // If current winning card isn't trump, this one wins
+                        // Ако текущата печеливша карта не е коз, тази печели
                         if (!isTrump(winningCard)) {
                             winningCard = card;
                             highestRank = currentRank;
@@ -383,16 +382,16 @@
                 return winningCard;
             }
             
-            // Calculate points in the current trick
+            // Изчисляване на точките в текущата взятка
             function calculateTrickPoints() {
                 return gameState.playedCards.reduce((total, card) => {
                     return total + (isTrump(card) ? card.trumpPoints : card.points);
                 }, 0);
             }
             
-            // End of round processing
+            // Край на рунда
             function endRound() {
-                // Determine if bidding team made their contract
+                // Определяне дали наддаващият отбор е изпълнил договора
                 const biddingTeam = (gameState.bidder === 0 || gameState.bidder === 2) ? "your" : "opponent";
                 const biddingTeamPoints = (gameState.bidder === 0 || gameState.bidder === 2) ? 
                     gameState.teamPoints : gameState.opponentPoints;
@@ -400,46 +399,46 @@
                 let message;
                 if (biddingTeam === "your") {
                     if (biddingTeamPoints >= 82) {
-                        message = "Your team made the contract!";
+                        message = "Вашият отбор изпълни договора!";
                     } else {
-                        message = "Your team failed the contract! Opponents get all points.";
+                        message = "Вашият отбор не изпълни договора! Противниците получават всички точки.";
                         gameState.opponentPoints = 162;
                     }
                 } else {
                     if (biddingTeamPoints >= 82) {
-                        message = "Opponents made their contract!";
+                        message = "Противниците изпълниха договора си!";
                     } else {
-                        message = "Opponents failed their contract! Your team gets all points.";
+                        message = "Противниците не изпълниха договора! Вашият отбор получава всички точки.";
                         gameState.teamPoints = 162;
                     }
                 }
                 
-                $('#currentTurn').text(`Round over! ${message} (Your team: ${gameState.teamPoints} - Opponents: ${gameState.opponentPoints})`);
+                $('#currentTurn').text(`Край на рунда! ${message} (Вашият отбор: ${gameState.teamPoints} - Противници: ${gameState.opponentPoints})`);
                 $('#btnPlayCard').hide();
                 $('#btnRestartGame').show();
             }
             
-            // Initialize game (deal initial 5 cards)
+            // Инициализиране на играта (раздаване на начални 5 карти)
             function initializeGame() {
                 initializeDeck();
                 shuffleDeck();
                 dealInitialCards();
                 gameState.bidPasses = 0;
                 gameState.phase = "bidding";
-                $('#currentTurn').text("Bidding - Your turn");
+                $('#currentTurn').text("Наддаване - Вашият ход");
                 $('#biddingStage').show();
                 $('#gameTable').hide();
                 $('#btnPlayCard').show();
                 $('#btnRestartGame').hide();
             }
             
-            // Bidding phase handlers
+            // Обработчици за фазата на наддаване
             $('.btn-bid').click(function() {
                 var suit = $(this).data('suit');
                 gameState.trump = suit;
-                gameState.bidder = 0; // Player is the bidder
+                gameState.bidder = 0; // Играчът е наддаващият
                 
-                // Deal remaining cards and start game
+                // Раздаване на останалите карти и стартиране на играта
                 dealRemainingCards();
                 endBiddingPhase();
             });
@@ -448,31 +447,31 @@
                 gameState.bidPasses++;
                 
                 if (gameState.bidPasses >= 4) {
-                    // All players passed - redeal
-                    alert("All players passed. Redealing cards...");
+                    // Всички играчи пасуват - прераздаване
+                    alert("Всички играчи пасуват. Прераздаване на карти...");
                     initializeGame();
                     return;
                 }
                 
-                // AI opponents take their turns to bid
+                // ИИ противниците правят своите наддавания
                 setTimeout(function() {
-                    // Simple AI - 30% chance to bid
+                    // Опростен ИИ - 30% шанс да наддаде
                     if (Math.random() < 0.3) {
                         const suits = ['clubs', 'diamonds', 'hearts', 'spades', 'notrump', 'alltrumps'];
                         gameState.trump = suits[Math.floor(Math.random() * suits.length)];
-                        gameState.bidder = gameState.bidPasses + 1; // Next player is bidder
+                        gameState.bidder = gameState.bidPasses + 1; // Следващият играч е наддаващият
                         
-                        // Deal remaining cards and start game
+                        // Раздаване на останалите карти и стартиране на играта
                         dealRemainingCards();
                         endBiddingPhase();
                     } else {
-                        // AI passes
+                        // ИИ пасува
                         gameState.bidPasses++;
                         if (gameState.bidPasses >= 4) {
-                            alert("All players passed. Redealing cards...");
+                            alert("Всички играчи пасуват. Прераздаване на карти...");
                             initializeGame();
                         } else {
-                            alert(`Player ${gameState.bidPasses} passed. Waiting for next player...`);
+                            alert(`Играч ${gameState.bidPasses} пасува. Чака се следващ играч...`);
                         }
                     }
                 }, 1000);
@@ -485,18 +484,18 @@
                 $('#currentTurn').text(gameState.currentPlayer);
                 gameState.phase = "playing";
                 gameState.currentPlayerIndex = gameState.bidder;
-                gameState.currentPlayer = ["You", "Opponent", "Teammate", "Opponent"][gameState.bidder];
+                gameState.currentPlayer = ["Вие", "Противник", "Съотборник", "Противник"][gameState.bidder];
                 
-                // If bidder is not player, start AI turn
+                // Ако наддаващият не е играчът, започва ход на ИИ
                 if (gameState.currentPlayerIndex !== 0) {
                     setTimeout(() => aiPlayCard(gameState.currentPlayerIndex), 1000);
                 }
             }
             
-            // Card play phase handlers
+            // Обработчици за фазата на игра
             $(document).on('click', '.player-card', function() {
                 if (gameState.phase !== "playing") return;
-                if (gameState.currentPlayerIndex !== 0) return; // Only allow when it's player's turn
+                if (gameState.currentPlayerIndex !== 0) return; // Позволено само когато е ход на играча
                 
                 if ($(this).hasClass('selected')) {
                     $(this).removeClass('selected');
@@ -508,12 +507,12 @@
             
             $('#btnPlayCard').click(function() {
                 if (gameState.phase !== "playing") {
-                    alert("Bidding phase still in progress!");
+                    alert("Все още е фаза на наддаване!");
                     return;
                 }
 
                 if (gameState.currentPlayerIndex !== 0) {
-                    alert("It's not your turn!");
+                    alert("Не е вашият ход!");
                     return;
                 }
 
@@ -522,38 +521,38 @@
                     const cardIndex = selectedCard.data('card-index');
                     const card = gameState.playerHand[cardIndex];
 
-                    // Enforce the rule: must play a card of the same suit as the first card if possible
-                    const leadCard = gameState.playedCards.find(c => c !== null); // First card in the trick
+                    // Прилагане на правилото: трябва да се играе карта от същия цвят като първата карта, ако е възможно
+                    const leadCard = gameState.playedCards.find(c => c !== null); // Първа карта във взятката
                     if (leadCard) {
                         const leadSuit = leadCard.suit;
                         const hasMatchingSuit = gameState.playerHand.some(c => c.suit === leadSuit);
 
                         if (hasMatchingSuit && card.suit !== leadSuit) {
-                            alert(`You must play a card of the ${leadSuit} suit if you have one.`);
+                            alert(`Трябва да играете карта от ${leadSuit} цвят, ако имате такава.`);
                             return;
                         }
                     }
 
-                    // Play the card (add to center)
+                    // Игране на картата (добавяне в центъра)
                     gameState.playedCards[gameState.currentPlayerIndex] = card;
                     renderPlayedCards();
 
-                    // Remove from hand
+                    // Премахване от ръката
                     gameState.playerHand.splice(cardIndex, 1);
 
-                    // Move to next player's turn
+                    // Преминаване към хода на следващия играч
                     nextTurn();
                 } else {
-                    alert('Please select a card to play');
+                    alert('Моля изберете карта за игра');
                 }
             });
             
-            // Restart game handler
+            // Обработчик за нова игра
             $('#btnRestartGame').click(function() {
                 initializeGame();
             });
             
-            // Start the game
+            // Стартиране на играта
             initializeGame();
         });
     </script>
